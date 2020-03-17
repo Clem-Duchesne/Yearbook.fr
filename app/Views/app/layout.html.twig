@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>Yearbook - MMI</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://use.typekit.net/gnx1whw.css">
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lemonada|Montserrat|Open+Sans&display=swap" rel="stylesheet">
+	<link href="{{assetA('css/styleApp.css')}}" rel="stylesheet" type='text/css'>
+    <link href="{{assetA('css/layout.css')}}" rel="stylesheet" type='text/css'>
+</head>
+<body>
+<header>
+    <img src="{{assetA('img/logo.png')}}">
+    <div id="progressBarre">
+        <a href="{{url('app/configuration')}}" class="step {% if (step >= 1) %} active {% endif %} "> <span> 1 </span> </a>
+        <div class="barre"></div>
+        <a href="{{url('app/choix')}}" class="step {% if (step >= 2) %} active {% endif %} "> <span> 2 </span> </a>
+        <div class="barre"></div>
+        <a href="{{url('app/creation')}}" class="step {% if (step >= 3) %} active {% endif %} "> <span> 3 </span> </a>
+        <div class="barre"></div>
+        <a href="{{url('app/export')}}" class="step {% if (step >= 4) %} active {% endif %} "> <span> 4 </span> </a>
+    </div>
+    <div id="burgerButton">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+{% block content %}{% endblock %}
+
+</body>
+{% block js %}{% endblock %}
+</html>

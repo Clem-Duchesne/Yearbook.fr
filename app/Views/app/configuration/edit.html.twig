@@ -1,0 +1,70 @@
+{% extends "app/layout.html.twig" %}
+
+{% block content %}
+<main id="configuration">
+        <div id="liste">
+            <ul>
+                {% for etudiant in etudiants %}
+                    <li> {{etudiant.nom}} {{etudiant.pnom}} <a href="{{url('app/configuration/deleteEtu/') ~ etudiant.id}}"><i class="las la-times"></i></a> <a href="{{url('app/configuration/editEtu/') ~ etudiant.id}}"><i class="las la-pen"></i></a></li>
+                {% endfor %}
+
+                {% for equipe in equipes %}
+                    <li> {{equipe.nom}} {{equipe.pnom}} <a href="{{url('app/configuration/deleteEqui/') ~ equipe.id}}"><i class="las la-times"></i></a> <a href="{{url('app/configuration/editEqui/') ~ equipe.id}}"><i class="las la-pen"></i></a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div id="ajout">
+            <form 
+            {% if statut == 'etu' %} action="{{url('app/configuration/editEtu/') ~ personne.id }}" {% endif %}
+            {% if statut == 'equi' %} action="{{url('app/configuration/editEqui/') ~ personne.id }}" {% endif %}
+            method="post">
+                <!--<div>
+                    <label><i class="las la-calendar-week"></i></label>
+                    <input type="text" placeholder="Promotion" id="Promotion">
+                </div>-->
+                <div>
+                    <label><i class="las la-tags"></i></label>
+                    <input type="text" placeholder="Nom" name="nom" id="Nom" value="{{personne.nom}}">
+                    <input type="text" placeholder="Prénom" name="pnom" id="Prenom" value="{{personne.pnom}}">
+                </div>
+                <div id="radios">
+                    <div class="radio">
+                        <span><i class="las la-sign"></i><b>Statut</b></span>
+                        <div>
+
+                            <input type="radio" name="statut" id="statut" value="etudiant" {% if (statut == 'etu') %}checked="check" {% endif %}>
+                            <label>Elève</label>
+                        </div>
+                        <div>
+
+                            <input type="radio" name="statut" id="statut" value="equipe" {% if (statut == 'equi') %}checked="check" {% endif %}>
+                            <label>Equipe du </br> departement</label>
+                        </div>
+                        
+                    </div>
+                    <div class="radio">
+                        <span><i class="las la-image"></i><b>Droit a l'image</b></span>
+                        <div>
+                            <input type="radio" name="droitImage" id="droitImage" value="1" {% if (personne.droitImage == 1) %}checked="check" {% endif %}>
+                            <label>Oui</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="droitImage" id="droitImage" value="0" {% if (personne.droitImage == 0) %}checked="check" {% endif %}>
+                            <label>Non</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" id="add" class="btn">Modifier</button>
+                </div>
+            </form>
+        </div>
+        <div class="prevNext" id="prevNext">
+            <a href="{{ url('app/delog')}}"><i class="las la-angle-left"></i>Déconnexion</a>
+            <a href="{{ url('app/choix')}}">2<i class="las la-angle-right"></i></a>
+        </div>
+    </main>
+
+
+{% endblock %}

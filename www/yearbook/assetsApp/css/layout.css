@@ -1,0 +1,121 @@
+/******************
+***** Layouts *****
+******************/
+
+/**** Layout1 ****/
+#layout1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#layout1 > div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#layout1 #h {
+  border: 8px solid white;
+  -webkit-box-shadow: 1px 1px 17px -5px #5e5e5e;
+  box-shadow: 1px 1px 17px -5px #5e5e5e;
+  width: 40%;
+  height: 70%;
+}
+
+#layout1 #v {
+  border: 8px solid white;
+  -webkit-box-shadow: 1px 1px 17px -5px #5e5e5e;
+  box-shadow: 1px 1px 17px -5px #5e5e5e;
+  width: 35%;
+  height: 70%;
+}
+
+/**** Layout2 ****/
+#layout2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#layout2 > div {
+  width: 65%;
+  height: 55%;
+  border: 8px solid white;
+  -webkit-box-shadow: 1px 1px 17px -5px #5e5e5e;
+  box-shadow: 1px 1px 17px -5px #5e5e5e;
+}
+#layout2 textarea {
+  width: 70%;
+  height: 30%;
+}
+#layout2 .title {
+  width: 70%;
+  height: 8%;
+}
+
+/**** Layout3 ****/
+#layout3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+#layout3 .zoneImage {
+  width: 65%;
+  height: 55%;
+  border: 8px solid white;
+  -webkit-box-shadow: 1px 1px 17px -5px #5e5e5e;
+  box-shadow: 1px 1px 17px -5px #5e5e5e;
+  margin: 20px 0px;
+}
+#layout3 textarea {
+  width: 80%;
+  height: 30%;
+}
+#layout3 input {
+  width: 20%;
+  height: 5%;
+}
+
+#layout3 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 90%;
+}
+#layout3 > div > input {
+  width: 80%;
+  height: 8%;
+}
+
+/**** Layout4 ****/
+#layout4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#layout4 > div {
+  width: 90%;
+  height: 45%;
+  border: 8px solid white;
+  -webkit-box-shadow: 1px 1px 17px -5px #5e5e5e;
+  box-shadow: 1px 1px 17px -5px #5e5e5e;
+}

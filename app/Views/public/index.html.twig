@@ -1,0 +1,29 @@
+{% extends "public/layout.html.twig" %}
+
+{% block content %}
+<header>
+
+    <a href="index.html"><img src="{{assetP('img/logo.png')}}" alt="logo"></a>
+    <a href="{{ url('login')}}">Connexion</a>
+
+</header>
+<main>
+
+    <section class="welcome">
+
+        <div class="content">
+            <h1>Regarder les Yearbooks !</h1>
+            <h2>Retracer la vie des anciennes <br> promotions MMI à l'IUT d'Angoulême</h2>
+        </div>
+    </section>
+    <section class="visu">
+        <h2>Visualiser les Yearbooks</h2>
+        <div class="container-book">
+            <a href="#"><img src="{{assetP('img/icone_livre/Yearbook_2018-2020.png')}}" alt="icone Yearbook"></a>
+            <a href="#"><img src="{{assetP('img/icone_livre/Yearbook_2019-2021.png')}}" alt="icone Yearbook"></a>
+            <a href="#"><img src="{{assetP('img/icone_livre/Yearbook_2020-2022.png')}}" alt="icone Yearbook"></a>
+            <a href="#"><img src="{{assetP('img/icone_livre/Yearbook_2021-2023.png')}}" alt="icone Yearbook"></a>
+        </div>
+    </section>
+</main>
+{% endblock %}

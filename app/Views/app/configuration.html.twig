@@ -1,0 +1,70 @@
+{% extends "app/layout-without-footer.html.twig" %}
+
+{% block content %}
+<main id="configuration">
+        <div id="liste">
+            <ul>
+                {% for name in etu_names %}
+                <li> {{name.nom}} {{name.pnom}}<a href="{{ url('configuration/etu/delete')}}"><i class="las la-times"></i></a> <a href="{{ url('configuration/etu/edit')}}"><i class="las la-pen"></i></li>
+            {% endfor %}
+                {% for name in equ_names %}
+                <li> {{name.nom}} {{name.pnom}}<i class="las la-times"></i> <i class="las la-pen"></i></li>
+            {% endfor %}
+
+            </ul>
+        </div>
+        <div id="ajout">
+            <form action="{{ url('configuration')}}" method="post">
+                <div>
+                    <label><i class="las la-calendar-week"></i></label>
+                    <input type="text" placeholder="Promotion" id="Promotion">
+                </div>
+                <div>
+                    <label><i class="las la-tags"></i></label>
+                    <input type="text" placeholder="Nom" id="Nom">
+                    <input type="text" placeholder="Prénom" id="Prenom">
+                </div>
+                <div id="radios">
+                    <div class="radio">
+                        <span><i class="las la-sign"></i><b>Statut</b></span>
+                        <div>
+
+                            <input type="radio" name="statut" id="statut" checked="check">
+                            <label>Elève</label>
+                        </div>
+                        <div>
+
+                            <input type="radio" name="statut" id="statut">
+                            <label>Professeur</label>
+                        </div>
+                        <div>
+
+                            <input type="radio" name="statut" id="statut">
+                            <label>Presonnel</label>
+                        </div>
+                    </div>
+                    <div class="radio">
+                        <span><i class="las la-image"></i><b>Droit a l'image</b></span>
+                        <div>
+                            <input type="radio" name="droitImage" id="droitImage" checked="check">
+                            <label>Oui</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="droitImage" id="droitImage">
+                            <label>Non</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="add">Ajouter</button>
+                </div>
+            </form>
+        </div>
+        <div class="prevNext" id="prevNext">
+            <a href="{{ url('delog')}}"><i class="las la-angle-left"></i>Déconnexion</a>
+            <a href="{{ url('choix')}}">2<i class="las la-angle-right"></i></a>
+        </div>
+    </main>
+
+
+{% endblock %}

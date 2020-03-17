@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>Yearbook - MMI</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://use.typekit.net/gnx1whw.css">
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+	<link href="{{assetA('css/styleApp.css')}}" rel="stylesheet" type='text/css'>
+</head>
+<body>
+<header>
+    <img src="{{assetA('img/logo.png')}}">
+    <div id="burgerButton">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+{% block content %}{% endblock %}
+
+
+</body>
+{% block js %}{% endblock %}
+</html>

@@ -1,0 +1,29 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="{{assetA('css/styleApp.css')}}" rel="stylesheet" type='text/css'>
+	<link rel="stylesheet" href="https://use.typekit.net/gnx1whw.css">
+	<title> YearBook </title>
+</head>
+<div id="accueilAdmin">
+	<div id="retour">
+		<h2>Perdu ?</h2>
+		<p>Vous allez rentrer dans l’interface administrateur de l’application qui vous permettra d’accéder à davantage de fonctionnalités. Il vous suffit de rentrer l’identitifiant et le mot de passe dans les champs à droite. <br/> Si vous n’avez pas d’identifiant ou de mot de passe c’est que vous n’avez pas la possibilité d’accéder au menu administrateur mais vous pouvez toujours visualiser les Yearbook créées sur la page d’accueil.</p>
+		<a href="{{ url('')}}">Retour</a>
+	</div>
+	<div id="login">
+		<h2>Connexion</h2>
+		<form action="{{ url('login')}}" method="post">
+			<input type="text" placeholder="Identifiant" name="name">
+			<input type="password" placeholder="Mot de passe" name="password">
+			<button>Se connecter</button>
+		</form>
+		<div id="message">{{ message }}</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "app/superadmin/layout.html.twig" %}
+
+{% block content %}
+
+		<main id="admin">
+
+			<div id="liste">
+	            <ul>
+	                {% for admin in admins %}
+	                    <li> {{admin.name}}  <a href="{{url('app/admin/delete/') ~ admin.id}}"><i class="las la-times"></i></a>
+	                {% endfor %}
+	            </ul>
+	        </div>
+
+	        <div id="add_admin">
+				<button class="btn">Créer un yearbook</button>
+				<form action="{{ url('app/admin/add') }}" method="post">
+					<div>
+						<label for="name">Nom de l'administrateur</label>
+						<input name="name">
+					</div>
+					<div>
+						<label for="password">Mot de passe</label>
+						<input type="password" name="password">
+					</div>
+					<button class="btn">Ajouter</button>
+				</form>
+			</div>
+
+		</main>
+
+{% endblock %}

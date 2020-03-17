@@ -1,0 +1,70 @@
+{% extends "app/layout.html.twig" %}
+
+{% block content %}
+<main id="choix">
+        <div id="fond">
+            <h2>Choix des fonds</h2>
+            <div id="fonds">
+                <div class="fond">
+                    <form method="POST" action="{{url('app/choix/fond/add')}}" enctype="multipart/form-data">
+                        <label id="picture_click" for="picture">
+                            <div id="beforeSelect">
+                                <span aria-hidden="true"><i class="las la-plus-circle"></i></span>
+                            </div>
+
+                            <img id="afterSelect" src="" alt="your image" />
+                            <input type="file" id="picture" style="display:none" name="illustration" accept="image/png, image/jpeg">
+                            <button id="btnAddFond" title="Ajouter le fond" style="display:none" type="submit"><i class="las la-check"></i></button>
+                        </label>
+                    </form>
+                </div>
+                {% for fond in fonds %}
+                    <div class="fond">
+                        <img  src="{{ assetA('img/fond/mini/') ~ fond.illustration_mini }}">
+                        <a href="{{url('app/choix/fond/delete/') ~ fond.id }}"> <i class="las la-times"></i> </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div id="googleFont">
+            <div>
+                <h2>Choix des polices</h2>
+                <p> 1- Allez sur le site de Google Fonts :
+                    https://fonts.google.com/ </p>
+
+                <p> 2- Choisissez vos polices en cliquant sur le symbole </p>
+
+                <p>3- En bas à droite cliquez sur la barre grise </p>
+
+                <p> 4-Copiez collez les liens CSS et HTML dans les champs ci-dessous </p>
+            </div>
+
+
+            <form>
+                <div>
+                    <label><i class="las la-code"></i></label>
+                    <input type="text" placeholder="Code HTML">
+                </div>
+                <div>
+                    <label><i class="las la-code"></i></label>
+                    <input type="text" placeholder="Code CSS">
+                </div>
+                <div>
+                    <button>Ajouter</button>
+                </div>
+            </form>
+        </div>
+        <div class="prevNext" id="prevNext">
+            <a href="{{ url('app/configuration')}}"><i class="las la-angle-left"></i>1</a>
+            <a href="{{ url('app/creation')}}">3<i class="las la-angle-right"></i></a>
+        </div>
+    </main>
+
+
+{% endblock %}
+
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="{{assetA('/js/showPictureUpload.js')}}"></script>
+{% endblock %}
