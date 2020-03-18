@@ -29,8 +29,8 @@ class CreationController extends Controller
         'fonds' => Fond::getInstance()->getMini(),
         'images' => Image::getInstance()->getMini(),
         'etudiants' => Etudiant::getInstance()->getAll(),
-        'equipes' => EquipeDepartement::getInstance()->getAll()
-
+        'equipes' => EquipeDepartement::getInstance()->getAll(),
+        'pages' => Page::getInstance()->getAll()
         /*
         'Yearbook' =>Yearbook::getInstance()->getAll()
         */
@@ -91,8 +91,13 @@ class CreationController extends Controller
     $layout = $_POST['layout'];
 
     $img = explode('/', $img);
-
-    $img = $img[12];
+    
+    $n = count($img);
+    for($i = 0; $i <= $n; $i++){
+      if($i == $n -1){
+        $img = $img[$i];
+      }
+    }
 
     $img_id = Image::getInstance()->getId($img);
     $cellule_id = Cellule::getInstance()->getIdImg($cellule);
@@ -121,8 +126,13 @@ class CreationController extends Controller
     $page = $_POST['page'];
 
     $fond = explode('/', $fond);
-
-    $fond = $fond[12];
+    $n = count($fond);
+    for($i = 0; $i <= $n; $i++){
+      if($i == $n - 1){
+        $fond = $fond[$i];
+      }
+    }
+    //$fond = $fond[11];
 
     $fond_id = Fond::getInstance()->getId($fond);
     $page_id = Page::getInstance()->getId($page);

@@ -23,4 +23,9 @@ class Yearbook extends Base {
    return self::$dbh->query($sql)->fetch();
   }
   */
+
+  public function getLast()
+  {
+    return self::$dbh->lastInsertId();
+  }
 }

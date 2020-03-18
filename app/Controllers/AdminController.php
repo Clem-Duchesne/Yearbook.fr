@@ -4,7 +4,8 @@
 //
 namespace App\Controllers;
 use App\Models\Admin;
-
+use App\Models\Yearbook;
+use App\Models\Page;
 class AdminController extends Controller
 {	
 	public function index(){
@@ -15,6 +16,7 @@ class AdminController extends Controller
 			$this->twig->display('/app/superadmin/index.html.twig', 
 			[
 				'admins' => $admins
+				
 			]);
 		}
 		else{
@@ -68,7 +70,6 @@ class AdminController extends Controller
 	      	$_SESSION[ 'role' ] = 'admin'; 
 	      }
 
-
 	      // redirection vers la page d'édition
 	      redirect( '/app/configuration' );
 	    } 
@@ -92,6 +93,20 @@ class AdminController extends Controller
 	    }
 	    session_destroy();
 	    redirect( '/' );
-	  }
+		}
+		
+		public function yearbookInit(){
+			//$_SESSION['msg'] = "";
+			$anneeDebut = date('Y') - 1 ;
+			$anneeFin = date('Y') + 1 ;
+			$anneePromo = $anneeDebut . "/" . $anneeFin;
+			$datasYB['anneePromotion'] = $anneePromo;
+			Yearbook::getInstance()->add($datasYB);
+			$lastInsert = Yearbook::getInstance()->getLast();
+			Page::getInstance()->init($lastInsert);
+			//$_SESSION['msg'] = "Yearbook Créé";
+			redirect( '/app/admin' );
+			
+		}
 
 }

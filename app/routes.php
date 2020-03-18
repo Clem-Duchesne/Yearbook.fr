@@ -16,16 +16,19 @@ $route->addRoute('GET', '/delog' , 'AdminController@delog');
 $route->addRoute( 'GET',  '/app/admin',  'AdminController@index' );
 $route->addRoute('POST', '/app/admin/add' , 'AdminController@add');
 $route->addRoute('GET', '/app/admin/delete/{id:[0-9]+}' , 'AdminController@delete');
+$route->addRoute('GET', '/app/yearbook/init' , 'AdminController@yearbookInit');
 
 
 // --- Configuration 
 $route->addRoute( 'GET',  '/app/configuration',  'ConfigurationController@index' );
 $route->addRoute( 'POST',  '/app/configuration/add',  'ConfigurationController@add' );
 
+
 // -- Action Etudiant
 $route->addRoute( 'GET',  '/app/configuration/editEtu/{id:[0-9]+}',  'ConfigurationController@editEtu' );
 $route->addRoute( 'POST',  '/app/configuration/editEtu/{id:[0-9]+}',  'ConfigurationController@editEtuSave' );
 $route->addRoute( 'GET',  '/app/configuration/deleteEtu/{id:[0-9]+}',  'ConfigurationController@deleteEtu' );
+
 
 // -- Action Equipe
 $route->addRoute( 'GET',  '/app/configuration/editEqui/{id:[0-9]+}',  'ConfigurationController@editEqui' );

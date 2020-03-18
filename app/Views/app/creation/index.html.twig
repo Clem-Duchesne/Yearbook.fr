@@ -82,162 +82,32 @@
                     <label for="pet-select">Choisir une police</label>
                     <select name="polices" id="font-select">
                         <option value="open" class="opens" selected>Police par default</option>
-                        <option value="lemonada" class="lemonada">Lemonada</option>
-                        <option value="montserrat" class="montserrat">Montserrat</option>
-                        <option value="lato" class="lato">Lato</option>
+                        {% for police in polices %}
+                        <option value="{{police.fontname}}" class="{{police.fontname}}">{{police.fontname | capitalize}}</option>
+                        {% endfor %}
                     </select>
             </div>
-            <div id="page12" class="pages">
-                <div class="page" id="page1">
-                    <div id='layout1' class="layout hide">
-                        <div>
-                            <div id="h" class='zoneImage' data-image="image1"></div>
-                            <div id="v" class='zoneImage' data-image="image2"></div>
-                        </div>
-                        <div>
-                            <div id="v" class='zoneImage' data-image="image3"></div>
-                            <div id="h" class='zoneImage' data-image="image4"></div>
-                        </div>
+            
+            {% for page in pages %}
+                {% if loop.index % 2 != 0 %}
+                <div id="page{{loop.index}}{{loop.index + 1}}" class="pages {% if loop.index > 1 %}hide{% endif %}">
+                {% endif %}
+                    <div class="page" id="page{{loop.index}}">
+                        {% include 'app/creation/mep.html.twig' %}
                     </div>
-
-                    <div id='layout2' class="layout hide">
-                        <input type="title" class="text" data-style="title">
-                        <div class='zoneImage' data-image="image1"></div>
-                        <textarea data-style="bottom-text" class='zoneImage text' name="bottom-text"></textarea>
-                    </div>
-
-                    <div id='layout3' class="layout">
-                        <input type="text" data-style="left-text" class="text" name="left-text">
-                        <div>
-                            <input type="title" class="text" data-style="title">
-                            <div class='zoneImage' data-image="image1"></div>
-                            <textarea data-style="bottom-text" class='text' name="bottom-text"></textarea>
-                        </div>
-                    <input type="text" class="text" data-style="right-text">
-                    </div>
-                    <div id='layout4' class="layout hide">
-                        <div class='zoneImage' data-image="image1"></div>
-                        <div class='zoneImage' data-image="image2"></div>
-                    </div>
-
+                {% if loop.index % 2 == 0 %}
                 </div>
-                <div class="page" id="page2">
-                    <div id='layout1' class="layout hide">
-                        <div>
-                            <div id="h" class='zoneImage' data-image="image1"></div>
-                            <div id="v" class='zoneImage' data-image="image2"></div>
-                        </div>
-                        <div>
-                            <div id="v" class='zoneImage' data-image="image3"></div>
-                            <div id="h" class='zoneImage' data-image="image4"></div>
-                        </div>
-                    </div>
-
-                    <div id='layout2' class="layout hide">
-                        <input type="title" class="text" data-style="title">
-                        <div class='zoneImage' data-image="image1"></div>
-                        <textarea data-style="bottom-text" class='zoneImage text' name="bottom-text"></textarea>
-                    </div>
-
-                    <div id='layout3' class="layout">
-                        <input type="text" data-style="left-text" class="text" name="left-text">
-                        <div>
-                            <input type="title" class="text" data-style="title">
-                            <div class='zoneImage' data-image="image1"></div>
-                            <textarea data-style="bottom-text" class='text' name="bottom-text"></textarea>
-                        </div>
-                        <input type="text" class="text" data-style="right-text">
-                    </div>
-                    <div id='layout4' class="layout hide">
-                        <div class='zoneImage' data-image="image1"></div>
-                        <div class='zoneImage' data-image="image2"></div>
-                    </div>
-                </div>
-
-            </div>
-            {%set h = 0 %}
-            {% for i in 3..60 %}
-                    <div id="page{{i + h}}{{i + 1 + h}}" class="pages hide">
-                        <div class="page" id="page{{i}}">
-                    <div id='layout1' class="layout hide">
-                        <div>
-                            <div id="h" class='zoneImage'></div>
-                            <div id="v" class='zoneImage'></div>
-                        </div>
-                        <div>
-                            <div id="v" class='zoneImage'></div>
-                            <div id="h" class='zoneImage'></div>
-                        </div>
-                    </div>
-
-                    <div id='layout2' class="layout hide">
-                        <input type="title" class="text" data-style="title">
-                        <div class='zoneImage'></div>
-                        <textarea data-style="bottom-text" class='zoneImage text' name="bottom-text"></textarea>
-                    </div>
-
-                    <div id='layout3' class="layout">
-                        <input type="text" data-style="left-text" class="text" name="left-text">
-                        <div>
-                            <input type="title" class="text" data-style="title">
-                            <div class='zoneImage'></div>
-                            <textarea data-style="bottom-text" class='text' name="bottom-text"></textarea>
-                        </div>
-                    <input type="text" class="text" data-style="right-text">
-                    </div>
-                    <div id='layout4' class="layout hide">
-                        <div class='zoneImage'></div>
-                        <div class='zoneImage'></div>
-                    </div>
-
-                </div>
-                <div class="page" id="page{{i + 1}}">
-                    <div id='layout1' class="layout hide">
-                        <div>
-                            <div id="h" class='zoneImage'></div>
-                            <div id="v" class='zoneImage'></div>
-                        </div>
-                        <div>
-                            <div id="v" class='zoneImage'></div>
-                            <div id="h" class='zoneImage'></div>
-                        </div>
-                    </div>
-
-                    <div id='layout2' class="layout hide">
-                        <input type="title" class="text" data-style="title">
-                        <div class='zoneImage'></div>
-                        <textarea data-style="bottom-text" class='zoneImage text' name="bottom-text"></textarea>
-                    </div>
-
-                    <div id='layout3' class="layout">
-                        <input type="text" data-style="left-text" class="text" name="left-text">
-                        <div>
-                            <input type="title" class="text" data-style="title">
-                            <div class='zoneImage'></div>
-                            <textarea data-style="bottom-text" class='text' name="bottom-text"></textarea>
-                        </div>
-                        <input type="text" class="text" data-style="right-text">
-                    </div>
-                    <div id='layout4' class="layout hide">
-                        <div class='zoneImage'></div>
-                        <div class='zoneImage'></div>
-                    </div>
-                </div>
-
-                </div>
-                {%set h = h + 1 %}
+                {% endif %}
             {% endfor %}
             <div id="nav">
-                <span class="numPage activ" data-page="12">1-2</span>
-                    {%set h = 0 %}
-                {% for i in 3..60 %}
-                
-                    <span class="numPage" data-page="{{i + h}}{{i + 1 + h}}">{{i + h}} - {{i + 1 + h}}</span>
-                    {%set h = h + 1 %}
-                    {% endfor %}
+            {% for page in pages %}
+                {% if loop.index % 2 != 0 %}
+                <span class="numPage {% if loop.index == 1 %}activ{% endif %}" data-page="{{loop.index }}{{loop.index + 1}}">{{loop.index}} - {{loop.index + 1}}</span>
+                {% endif %}
+            {% endfor %}
                 <span class="numPage" data-page="plus">Plus</span>
             </div>
-        </div>    
+        </div>   
 </main>
 
 

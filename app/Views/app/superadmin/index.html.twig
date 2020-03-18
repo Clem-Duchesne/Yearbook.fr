@@ -13,7 +13,8 @@
 	        </div>
 
 	        <div id="add_admin">
-				<button class="btn">Créer un yearbook</button>
+				<a href="{{url('app/yearbook/init')}}" class="btn">Créer un yearbook</a>
+				<span></span>
 				<form action="{{ url('app/admin/add') }}" method="post">
 					<div>
 						<label for="name">Nom de l'administrateur</label>

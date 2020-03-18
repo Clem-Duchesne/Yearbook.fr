@@ -21,4 +21,17 @@ class Page extends Base {
     $sth->execute();
     return $sth->fetch();
   }
+
+  public function init($idYearbook)
+    { 
+      $numPage = '';
+      $datas = ['pages_number' => $numPage,'yearbook_id' => $idYearbook];
+      
+        
+      for($i = 1; $i<=60;$i++){
+        $numPage = $i;
+        $datas['pages_number'] = 'page'.$numPage;
+        $this->add($datas);
+      }
+    }
 }
