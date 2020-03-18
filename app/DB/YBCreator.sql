@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 17 mars 2020 à 19:42
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Hôte : localhost
+-- Généré le :  mer. 18 mars 2020 à 12:29
+-- Version du serveur :  10.1.40-MariaDB
+-- Version de PHP :  7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `ybcreator`
+-- Base de données :  `YBCreator`
 --
 
 -- --------------------------------------------------------
@@ -28,13 +28,11 @@ SET time_zone = "+00:00";
 -- Structure de la table `yearbook_admin`
 --
 
-DROP TABLE IF EXISTS `yearbook_admin`;
-CREATE TABLE IF NOT EXISTS `yearbook_admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_admin` (
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `yearbook_admin`
@@ -42,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `yearbook_admin` (
 
 INSERT INTO `yearbook_admin` (`id`, `name`, `password`) VALUES
 (2, 'test', '$2y$10$iHZqp16F8kzRu203Ze8tjOcHLWBNwY8ZqvjsfcwtuoFq1flRikKXa'),
-(3, 'admin', '$2y$10$O2Unho4Xw20VMUptPRnCl.VxDiCIf91Llsk9TgdG/1OFMoMnzjCae');
+(3, 'admin', '$2y$10$O2Unho4Xw20VMUptPRnCl.VxDiCIf91Llsk9TgdG/1OFMoMnzjCae'),
+(4, 'root', '$2y$10$EkkuJnQGk4NxX7HHuJE/buNwe98qsUOn.4BZkBIUoYn1noZnxzqqu');
 
 -- --------------------------------------------------------
 
@@ -50,15 +49,12 @@ INSERT INTO `yearbook_admin` (`id`, `name`, `password`) VALUES
 -- Structure de la table `yearbook_apparait`
 --
 
-DROP TABLE IF EXISTS `yearbook_apparait`;
-CREATE TABLE IF NOT EXISTS `yearbook_apparait` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_apparait` (
+  `id` int(11) NOT NULL,
   `id_photo` int(11) NOT NULL,
   `id_personne` int(11) NOT NULL,
-  `type` varchar(4) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_photo` (`id_photo`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `type` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `yearbook_apparait`
@@ -73,13 +69,11 @@ INSERT INTO `yearbook_apparait` (`id`, `id_photo`, `id_personne`, `type`) VALUES
 -- Structure de la table `yearbook_cellule`
 --
 
-DROP TABLE IF EXISTS `yearbook_cellule`;
-CREATE TABLE IF NOT EXISTS `yearbook_cellule` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_cellule` (
+  `id` int(11) NOT NULL,
   `data-image` text,
-  `data-style` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `data-style` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `yearbook_cellule`
@@ -98,15 +92,13 @@ INSERT INTO `yearbook_cellule` (`id`, `data-image`, `data-style`) VALUES
 -- Structure de la table `yearbook_equipedepartement`
 --
 
-DROP TABLE IF EXISTS `yearbook_equipedepartement`;
-CREATE TABLE IF NOT EXISTS `yearbook_equipedepartement` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_equipedepartement` (
+  `id` int(11) NOT NULL,
   `nom` text NOT NULL,
   `pnom` text NOT NULL,
   `droitImage` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `yearbook_equipedepartement`
@@ -122,15 +114,13 @@ INSERT INTO `yearbook_equipedepartement` (`id`, `nom`, `pnom`, `droitImage`, `cr
 -- Structure de la table `yearbook_etudiant`
 --
 
-DROP TABLE IF EXISTS `yearbook_etudiant`;
-CREATE TABLE IF NOT EXISTS `yearbook_etudiant` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_etudiant` (
+  `id` int(11) NOT NULL,
   `nom` text NOT NULL,
   `pnom` text NOT NULL,
   `droitImage` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `yearbook_etudiant`
@@ -149,14 +139,12 @@ INSERT INTO `yearbook_etudiant` (`id`, `nom`, `pnom`, `droitImage`, `created_at`
 -- Structure de la table `yearbook_fond`
 --
 
-DROP TABLE IF EXISTS `yearbook_fond`;
-CREATE TABLE IF NOT EXISTS `yearbook_fond` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_fond` (
+  `id` int(11) NOT NULL,
   `illustration_mini` text NOT NULL,
   `illustration_larg` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `yearbook_fond`
@@ -174,14 +162,12 @@ INSERT INTO `yearbook_fond` (`id`, `illustration_mini`, `illustration_larg`, `cr
 -- Structure de la table `yearbook_image`
 --
 
-DROP TABLE IF EXISTS `yearbook_image`;
-CREATE TABLE IF NOT EXISTS `yearbook_image` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_image` (
+  `id` int(11) NOT NULL,
   `image_larg` text NOT NULL,
   `image_mini` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `yearbook_image`
@@ -196,12 +182,10 @@ INSERT INTO `yearbook_image` (`id`, `image_larg`, `image_mini`, `created_at`) VA
 -- Structure de la table `yearbook_layout`
 --
 
-DROP TABLE IF EXISTS `yearbook_layout`;
-CREATE TABLE IF NOT EXISTS `yearbook_layout` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `css_id` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE `yearbook_layout` (
+  `id` int(11) NOT NULL,
+  `css_id` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `yearbook_layout`
@@ -217,22 +201,78 @@ INSERT INTO `yearbook_layout` (`id`, `css_id`) VALUES
 -- Structure de la table `yearbook_page`
 --
 
-DROP TABLE IF EXISTS `yearbook_page`;
-CREATE TABLE IF NOT EXISTS `yearbook_page` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_page` (
+  `id` int(11) NOT NULL,
   `pages_number` varchar(11) NOT NULL,
   `fond_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fond_id` (`fond_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `yearbook_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `yearbook_page`
 --
 
-INSERT INTO `yearbook_page` (`id`, `pages_number`, `fond_id`) VALUES
-(1, 'page1', 9),
-(2, 'page2', NULL);
+INSERT INTO `yearbook_page` (`id`, `pages_number`, `fond_id`, `yearbook_id`) VALUES
+(3, 'page1', NULL, 2),
+(4, 'page2', NULL, 2),
+(5, 'page3', NULL, 2),
+(6, 'page4', NULL, 2),
+(7, 'page5', NULL, 2),
+(8, 'page6', NULL, 2),
+(9, 'page7', NULL, 2),
+(10, 'page8', NULL, 2),
+(11, 'page9', NULL, 2),
+(12, 'page10', NULL, 2),
+(13, 'page11', NULL, 2),
+(14, 'page12', NULL, 2),
+(15, 'page13', NULL, 2),
+(16, 'page14', NULL, 2),
+(17, 'page15', NULL, 2),
+(18, 'page16', NULL, 2),
+(19, 'page17', NULL, 2),
+(20, 'page18', NULL, 2),
+(21, 'page19', NULL, 2),
+(22, 'page20', NULL, 2),
+(23, 'page21', NULL, 2),
+(24, 'page22', NULL, 2),
+(25, 'page23', NULL, 2),
+(26, 'page24', NULL, 2),
+(27, 'page25', NULL, 2),
+(28, 'page26', NULL, 2),
+(29, 'page27', NULL, 2),
+(30, 'page28', NULL, 2),
+(31, 'page29', NULL, 2),
+(32, 'page30', NULL, 2),
+(33, 'page31', NULL, 2),
+(34, 'page32', NULL, 2),
+(35, 'page33', NULL, 2),
+(36, 'page34', NULL, 2),
+(37, 'page35', NULL, 2),
+(38, 'page36', NULL, 2),
+(39, 'page37', NULL, 2),
+(40, 'page38', NULL, 2),
+(41, 'page39', NULL, 2),
+(42, 'page40', NULL, 2),
+(43, 'page41', NULL, 2),
+(44, 'page42', NULL, 2),
+(45, 'page43', NULL, 2),
+(46, 'page44', NULL, 2),
+(47, 'page45', NULL, 2),
+(48, 'page46', NULL, 2),
+(49, 'page47', NULL, 2),
+(50, 'page48', NULL, 2),
+(51, 'page49', NULL, 2),
+(52, 'page50', NULL, 2),
+(53, 'page51', NULL, 2),
+(54, 'page52', NULL, 2),
+(55, 'page53', NULL, 2),
+(56, 'page54', NULL, 2),
+(57, 'page55', NULL, 2),
+(58, 'page56', NULL, 2),
+(59, 'page57', NULL, 2),
+(60, 'page58', NULL, 2),
+(61, 'page59', NULL, 2),
+(62, 'page60', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -240,30 +280,22 @@ INSERT INTO `yearbook_page` (`id`, `pages_number`, `fond_id`) VALUES
 -- Structure de la table `yearbook_pages_layout_cellule_content`
 --
 
-DROP TABLE IF EXISTS `yearbook_pages_layout_cellule_content`;
-CREATE TABLE IF NOT EXISTS `yearbook_pages_layout_cellule_content` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_pages_layout_cellule_content` (
+  `id` int(11) NOT NULL,
   `pages_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
   `cellule_id` int(11) NOT NULL,
   `text_id` int(11) DEFAULT NULL,
-  `image_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `pages_id` (`pages_id`),
-  KEY `layout_id` (`layout_id`),
-  KEY `cellule_id` (`cellule_id`),
-  KEY `text_id` (`text_id`),
-  KEY `image_id` (`image_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+  `image_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `yearbook_pages_layout_cellule_content`
 --
 
 INSERT INTO `yearbook_pages_layout_cellule_content` (`id`, `pages_id`, `layout_id`, `cellule_id`, `text_id`, `image_id`) VALUES
-(14, 1, 2, 1, 89, NULL),
-(20, 1, 2, 2, 91, NULL),
-(23, 1, 2, 5, NULL, 15);
+(25, 3, 2, 5, NULL, 15),
+(26, 3, 2, 1, 93, NULL);
 
 -- --------------------------------------------------------
 
@@ -271,12 +303,10 @@ INSERT INTO `yearbook_pages_layout_cellule_content` (`id`, `pages_id`, `layout_i
 -- Structure de la table `yearbook_police`
 --
 
-DROP TABLE IF EXISTS `yearbook_police`;
-CREATE TABLE IF NOT EXISTS `yearbook_police` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_police` (
+  `id` int(11) NOT NULL,
   `css` text NOT NULL,
-  `html` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `html` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -285,11 +315,9 @@ CREATE TABLE IF NOT EXISTS `yearbook_police` (
 -- Structure de la table `yearbook_promotion`
 --
 
-DROP TABLE IF EXISTS `yearbook_promotion`;
-CREATE TABLE IF NOT EXISTS `yearbook_promotion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `annees` text NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `yearbook_promotion` (
+  `id` int(11) NOT NULL,
+  `annees` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -298,23 +326,19 @@ CREATE TABLE IF NOT EXISTS `yearbook_promotion` (
 -- Structure de la table `yearbook_texte`
 --
 
-DROP TABLE IF EXISTS `yearbook_texte`;
-CREATE TABLE IF NOT EXISTS `yearbook_texte` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `yearbook_texte` (
+  `id` int(11) NOT NULL,
   `content` text NOT NULL,
   `font` text NOT NULL,
-  `author` text CHARACTER SET utf8 COLLATE utf8_bin,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+  `author` text CHARACTER SET utf8 COLLATE utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `yearbook_texte`
 --
 
 INSERT INTO `yearbook_texte` (`id`, `content`, `font`, `author`) VALUES
-(89, 'qefqg', 'text', NULL),
-(90, 'Il était une fois', 'text', NULL),
-(91, 'Trois petits chats', 'text', NULL);
+(93, 'Test qui normalement doit être bon', 'text', NULL);
 
 -- --------------------------------------------------------
 
@@ -322,14 +346,202 @@ INSERT INTO `yearbook_texte` (`id`, `content`, `font`, `author`) VALUES
 -- Structure de la table `yearbook_yearbook`
 --
 
-DROP TABLE IF EXISTS `yearbook_yearbook`;
-CREATE TABLE IF NOT EXISTS `yearbook_yearbook` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `annéePromotion` text NOT NULL,
+CREATE TABLE `yearbook_yearbook` (
+  `id` int(11) NOT NULL,
+  `anneePromotion` text NOT NULL,
   `actif` int(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `yearbook_yearbook`
+--
+
+INSERT INTO `yearbook_yearbook` (`id`, `anneePromotion`, `actif`, `created_at`) VALUES
+(2, '2019/2021', 0, '2020-03-18 11:23:51');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `yearbook_admin`
+--
+ALTER TABLE `yearbook_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_apparait`
+--
+ALTER TABLE `yearbook_apparait`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_photo` (`id_photo`);
+
+--
+-- Index pour la table `yearbook_cellule`
+--
+ALTER TABLE `yearbook_cellule`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_equipedepartement`
+--
+ALTER TABLE `yearbook_equipedepartement`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_etudiant`
+--
+ALTER TABLE `yearbook_etudiant`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_fond`
+--
+ALTER TABLE `yearbook_fond`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_image`
+--
+ALTER TABLE `yearbook_image`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_layout`
+--
+ALTER TABLE `yearbook_layout`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_page`
+--
+ALTER TABLE `yearbook_page`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fond_id` (`fond_id`);
+
+--
+-- Index pour la table `yearbook_pages_layout_cellule_content`
+--
+ALTER TABLE `yearbook_pages_layout_cellule_content`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pages_id` (`pages_id`),
+  ADD KEY `layout_id` (`layout_id`),
+  ADD KEY `cellule_id` (`cellule_id`),
+  ADD KEY `text_id` (`text_id`),
+  ADD KEY `image_id` (`image_id`);
+
+--
+-- Index pour la table `yearbook_police`
+--
+ALTER TABLE `yearbook_police`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_promotion`
+--
+ALTER TABLE `yearbook_promotion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_texte`
+--
+ALTER TABLE `yearbook_texte`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `yearbook_yearbook`
+--
+ALTER TABLE `yearbook_yearbook`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_admin`
+--
+ALTER TABLE `yearbook_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_apparait`
+--
+ALTER TABLE `yearbook_apparait`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_cellule`
+--
+ALTER TABLE `yearbook_cellule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_equipedepartement`
+--
+ALTER TABLE `yearbook_equipedepartement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_etudiant`
+--
+ALTER TABLE `yearbook_etudiant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_fond`
+--
+ALTER TABLE `yearbook_fond`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_image`
+--
+ALTER TABLE `yearbook_image`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_layout`
+--
+ALTER TABLE `yearbook_layout`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_page`
+--
+ALTER TABLE `yearbook_page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_pages_layout_cellule_content`
+--
+ALTER TABLE `yearbook_pages_layout_cellule_content`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_police`
+--
+ALTER TABLE `yearbook_police`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_promotion`
+--
+ALTER TABLE `yearbook_promotion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_texte`
+--
+ALTER TABLE `yearbook_texte`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+
+--
+-- AUTO_INCREMENT pour la table `yearbook_yearbook`
+--
+ALTER TABLE `yearbook_yearbook`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
