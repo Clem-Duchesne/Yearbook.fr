@@ -22,6 +22,38 @@ class CreationController extends Controller
 
   public function index()
   { 
+    $content = [];
+    $plcc = Pages_layout_cellule_content::getInstance()->getAll();
+    $layouts = Layout::getInstance()->getAll();
+    
+    $n = count($plcc);
+    for($i = 0; $i < $n; $i++){
+      $content[$i]['pages_id'] = $plcc[$i]['pages_id'];
+      $layout = Layout::getInstance()->get($plcc[$i]['layout_id']);
+      $cellule = Cellule::getInstance()->get($plcc[$i]['cellule_id']);
+      
+      $content[$i]['layout'] = $layout['css_id'];
+      if($cellule["data-image"] == NULL){
+        $content[$i]['cellule'] = $cellule['data-style'];
+        $text = Texte::getInstance()->get($plcc[$i]['text_id']);
+        $content[$i]['text'] = $text['content'];
+      }
+      else{
+        $content[$i]['cellule'] = $cellule['data-image'];
+        $image = Image::getInstance()->get($plcc[$i]['image_id']);
+        $content[$i]['image'] = $image['image_mini'];
+      }
+      
+    }
+    $pages = Page::getInstance()->getAll();
+    $n = count($pages);
+    for($i = 0; $i < $n; $i++){
+      $fond = Fond::getInstance()->getOneMini($pages[$i]['fond_id']);
+      $pages[$i]['fond'] = $fond['illustration_mini'];
+    }
+    //r($pages);
+    //die;
+
     $this->twig->display(
       'app/creation/index.html.twig',[
         'step' => 3, 
@@ -30,9 +62,10 @@ class CreationController extends Controller
         'images' => Image::getInstance()->getMini(),
         'etudiants' => Etudiant::getInstance()->getAll(),
         'equipes' => EquipeDepartement::getInstance()->getAll(),
-        'pages' => Page::getInstance()->getAll()
+        'pages' => $pages,
+        'contents' => $content
         /*
-        'Yearbook' =>Yearbook::getInstance()->getAll()
+        'Yearbook' => Yearbook::getInstance()->getAll()
         */
       ]
     );

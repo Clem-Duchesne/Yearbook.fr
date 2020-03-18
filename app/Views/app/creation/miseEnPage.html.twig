@@ -1,0 +1,78 @@
+<div id='layout1' class="layout hide">
+    <div>
+        <div id="h" class='zoneImage' data-image="image1">
+        {% for content in contents %}
+            {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout1' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}
+        {% endfor %}
+        </div>
+        <div id="v" class='zoneImage' data-image="image2">
+        {% for content in contents %}
+            {% if page.id == content.pages_id and content.cellule == "image2" and content.layout == 'layout1' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+    <div>
+        <div id="v" class='zoneImage' data-image="image3">
+        {% for content in contents %}
+            {% if page.id == content.pages_id and content.cellule == "image3" and content.layout == 'layout1' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}
+        {% endfor %}
+        </div>
+        <div id="h" class='zoneImage' data-image="image4">
+        {% for content in contents %}
+            {% if page.id == content.pages_id and content.cellule == "image4" and content.layout == 'layout1' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id='layout2' class="layout hide">
+    <input type="text" class="text" data-style="title" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}{{content.text}}{% endif %}{% endfor %}">
+    <div class='zoneImage' data-image="image1"></div>
+    <textarea data-style="bottom-text" class='text' name="bottom-text" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}}{% endif %}{% endfor %}">
+    
+    </textarea>
+</div>
+
+<div id='layout3' class="layout">
+    <input type="text" data-style="left-text" class="text" name="left-text" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "left-text" and content.layout == 'layout3' %}{{content.text}}{% endif %}{% endfor %}">
+    <div>
+        <input type="title" class="text" data-style="title" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout3' %}{{content.text}}{% endif %}{% endfor %}">
+        <div class='zoneImage' data-image="image1">
+        {% for content in contents %}
+            {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout3' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}
+        {% endfor %}
+        </div>
+        <textarea data-style="bottom-text" class='text' name="bottom-text">{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout3' %}{{content.text}}{% endif %}{% endfor %}</textarea>
+    </div>
+<input type="text" class="text" data-style="right-text" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "right-text" and content.layout == 'layout3' %}{{content.text}}{% endif %}{% endfor %}">
+</div>
+
+<div id='layout4' class="layout hide">
+    <div class='zoneImage' data-image="image1">
+    {% for content in contents %}
+            {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout4' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class='zoneImage' data-image="image2">
+    {% for content in contents %}
+            {% if page.id == content.pages_id and content.cellule == "image2" and content.layout == 'layout4' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% if page.fond %}
+<img src="{{assetA('img/fond/mini/') ~ page.fond }}" class="fondPage" draggable="true">
+{% endif %}

@@ -20,6 +20,15 @@ class Fond extends Base {
     return self::$dbh->query($sql)->fetchAll();
   }
 
+  public function getOneMini($id)
+  {
+    $sql = "SELECT id, illustration_mini FROM `{$this->tableName}` WHERE id = :id";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id', $id);
+    $sth->execute();
+    return $sth->fetch();
+  }
+
   public function addWhitImage($datas)
   {
     $time_start = microtime_float();

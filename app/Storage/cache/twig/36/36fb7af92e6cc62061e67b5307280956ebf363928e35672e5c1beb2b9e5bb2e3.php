@@ -327,7 +327,7 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
             echo "\">
                         ";
             // line 96
-            $this->loadTemplate("app/creation/mep.html.twig", "app/creation/index.html.twig", 96)->display($context);
+            $this->loadTemplate("app/creation/miseEnPage.html.twig", "app/creation/index.html.twig", 96)->display($context);
             // line 97
             echo "                    </div>
                 ";
@@ -404,7 +404,8 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['page'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 108
-        echo "                <span class=\"numPage\" data-page=\"plus\">Plus</span>
+        echo "            
+                <span class=\"numPage\" data-page=\"plus\">Plus</span>
             </div>
         </div>   
 </main>
@@ -413,42 +414,42 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
 ";
     }
 
-    // line 115
+    // line 116
     public function block_js($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 116
+        // line 117
         echo "<script src=\"https://code.jquery.com/jquery-3.4.1.min.js\" integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\" crossorigin=\"anonymous\"></script>
 <script src=\"";
-        // line 117
+        // line 118
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/showPictureUpload.js"]), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 118
+        // line 119
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/outil.js"]), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 119
+        // line 120
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/d&d.js"]), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 120
+        // line 121
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/save.js"]), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 121
+        // line 122
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/d&dUse.js"]), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 122
+        // line 123
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/pages.js"]), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 123
+        // line 124
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/polices.js"]), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 124
+        // line 125
         echo twig_escape_filter($this->env, call_user_func_array($this->env->getFunction('assetA')->getCallable(), ["js/popup.js"]), "html", null, true);
         echo "\"></script>
 ";
@@ -466,7 +467,7 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
 
     public function getDebugInfo()
     {
-        return array (  452 => 124,  448 => 123,  444 => 122,  440 => 121,  436 => 120,  432 => 119,  428 => 118,  424 => 117,  421 => 116,  417 => 115,  407 => 108,  393 => 107,  378 => 105,  375 => 104,  358 => 103,  355 => 102,  341 => 101,  337 => 99,  335 => 98,  332 => 97,  330 => 96,  325 => 95,  314 => 93,  311 => 92,  294 => 91,  289 => 88,  276 => 86,  272 => 85,  262 => 78,  253 => 72,  249 => 71,  245 => 70,  241 => 69,  236 => 66,  227 => 64,  223 => 63,  209 => 51,  189 => 49,  180 => 48,  162 => 47,  142 => 45,  133 => 44,  116 => 43,  103 => 33,  92 => 24,  83 => 22,  79 => 21,  69 => 14,  65 => 13,  61 => 12,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  453 => 125,  449 => 124,  445 => 123,  441 => 122,  437 => 121,  433 => 120,  429 => 119,  425 => 118,  422 => 117,  418 => 116,  407 => 108,  393 => 107,  378 => 105,  375 => 104,  358 => 103,  355 => 102,  341 => 101,  337 => 99,  335 => 98,  332 => 97,  330 => 96,  325 => 95,  314 => 93,  311 => 92,  294 => 91,  289 => 88,  276 => 86,  272 => 85,  262 => 78,  253 => 72,  249 => 71,  245 => 70,  241 => 69,  236 => 66,  227 => 64,  223 => 63,  209 => 51,  189 => 49,  180 => 48,  162 => 47,  142 => 45,  133 => 44,  116 => 43,  103 => 33,  92 => 24,  83 => 22,  79 => 21,  69 => 14,  65 => 13,  61 => 12,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -566,7 +567,7 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
                 <div id=\"page{{loop.index}}{{loop.index + 1}}\" class=\"pages {% if loop.index > 1 %}hide{% endif %}\">
                 {% endif %}
                     <div class=\"page\" id=\"page{{loop.index}}\">
-                        {% include 'app/creation/mep.html.twig' %}
+                        {% include 'app/creation/miseEnPage.html.twig' %}
                     </div>
                 {% if loop.index % 2 == 0 %}
                 </div>
@@ -578,6 +579,7 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
                 <span class=\"numPage {% if loop.index == 1 %}activ{% endif %}\" data-page=\"{{loop.index }}{{loop.index + 1}}\">{{loop.index}} - {{loop.index + 1}}</span>
                 {% endif %}
             {% endfor %}
+            
                 <span class=\"numPage\" data-page=\"plus\">Plus</span>
             </div>
         </div>   
