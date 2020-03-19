@@ -35,7 +35,10 @@
 
 <div id='layout2' class="layout {% if page.layout != 'layout2' %}hide{% endif %}">
     <input type="text" class="text" data-style="title" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}{{content.text}}{% endif %}{% endfor %}">
-    <div class='zoneImage' data-image="image1"></div>
+    <div class='zoneImage' data-image="image1">
+            {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout2' %}
+                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+            {% endif %}</div>
     <textarea data-style="bottom-text" class='text' name="bottom-text" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}}{% endif %}{% endfor %}">
     
     </textarea>

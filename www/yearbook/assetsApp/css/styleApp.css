@@ -960,6 +960,8 @@ textarea {
 }
 #text-menu {
     z-index: 4;
+    position: absolute;
+    background-color: antiquewhite;
 }
 
 @media screen and (max-height: 720px) {
