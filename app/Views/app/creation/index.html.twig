@@ -1,5 +1,22 @@
-{% extends "app/layout.html.twig" %}
+{% extends "app/creation/layout.html.twig" %}
 
+{% block head %}
+<head>
+	<title>Yearbook - MMI</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://use.typekit.net/gnx1whw.css">
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lemonada|Montserrat|Open+Sans&display=swap" rel="stylesheet">
+	<link href="{{assetA('css/styleApp.css')}}" rel="stylesheet" type='text/css'>
+    <link href="{{assetA('css/layout.css')}}" rel="stylesheet" type='text/css'>
+    <link href="{{ assetA( 'css/police.php')  }}" rel="stylesheet" type="text/css">
+    {%for police in polices %}
+        <link href="{{police.html}}" rel="stylesheet">
+    {%endfor%}
+</head> 
+{% endblock %}
 {% block content %}
     <div id="drag_zone">
 
@@ -80,10 +97,10 @@
             </div>
             <div id="text-menu" class="hidden">
                     <label for="pet-select">Choisir une police</label>
-                    <select name="polices" id="font-select" id="polices">
+                    <select name="polices" id="font-select">
                         <option value="open" class="opens" selected>Police par default</option>
                         {% for police in polices %}
-                        <option value="{{police.fontname}}" class="{{police.fontname}}">{{police.fontname | capitalize}}</option>
+                        <option value="{{police.fontname_min}}" class="{{police.fontname_min}}">{{police.fontname}}</option>
                         {% endfor %}
                     </select>
             </div>
@@ -109,6 +126,7 @@
                 <span class="numPage" data-page="plus">Plus</span>
             </div>
         </div>   
+        <input hidden id="polices" value="{{serialize_polices}}"> 
 </main>
 
 

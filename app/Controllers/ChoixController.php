@@ -39,6 +39,13 @@ class ChoixController extends Controller
   }
 
   public function addPolice(){
+    
+    $_POST['html'] = str_replace('" rel="stylesheet">', '',$_POST['html']);
+    $_POST['html'] = str_replace('<link href="', '', $_POST['html']);
+    $_POST['fontname'] = str_replace("https://fonts.googleapis.com/css?family=", '', $_POST['html']);
+    $_POST['fontname'] = str_replace('&display=swap', '', $_POST['fontname']);
+    $_POST['fontname'] = str_replace('+', ' ', $_POST['fontname']);
+    $_POST['fontname_min'] = strtolower(str_replace(' ','',$_POST['fontname']));
     Police::getInstance()->add($_POST);
     redirect( '/app/choix' );
   }

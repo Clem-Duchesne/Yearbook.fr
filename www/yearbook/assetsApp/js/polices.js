@@ -9,16 +9,17 @@ var select = document.getElementById("font-select");
 var layout = document.getElementsByClassName("layout");
 var polices = document.getElementById("polices").value;
 
-//Decodage JSON ->string to array
 polices = JSON.parse(polices);
 
 for (let i = 0; i < polices.length; i++) {
-    f.push(polices[i]["fontname"]);
+f.push(polices[i]["fontname_min"]);
 }
+
 
 var t = ["title", "right-text", "left-text", "middle-text", "bottom-text"];
 
 function font_change(e) {
+    
     if (e.target.classList[0] == "text") {
         textArea = e.target;
         dataStyle = textArea.getAttribute("data-style");
@@ -40,6 +41,7 @@ function font_change(e) {
         }
 
         select.addEventListener("change", function() {
+
             choice = select.selectedIndex; // Récupération de l'index du <option> choisi
             selectedOption = select.options[choice].value;
 

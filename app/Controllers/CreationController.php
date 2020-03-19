@@ -23,6 +23,9 @@ class CreationController extends Controller
 
   public function index()
   { 
+    $polices = Police::getInstance()->getAll();
+    $_SESSION['polices'] = $polices;
+
     $content = [];
     $plcc = Pages_layout_cellule_content::getInstance()->getAll();
     $layouts = Layout::getInstance()->getAll();
@@ -78,7 +81,9 @@ class CreationController extends Controller
         'etudiants' => Etudiant::getInstance()->getAll(),
         'equipes' => EquipeDepartement::getInstance()->getAll(),
         'pages' => $pages,
-        'contents' => $content
+        'contents' => $content,
+        //Codage json array to string for input
+        'serialize_polices' => json_encode($polices)
         /*
         'Yearbook' => Yearbook::getInstance()->getAll()
         */
