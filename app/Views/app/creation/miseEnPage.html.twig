@@ -1,4 +1,4 @@
-<div id='layout1' class="layout hide">
+<div id='layout1' class="layout {% if page.layout != 'layout1' %}hide{% endif %}">
     <div>
         <div id="h" class='zoneImage' data-image="image1">
         {% for content in contents %}
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div id='layout2' class="layout hide">
+<div id='layout2' class="layout {% if page.layout != 'layout2' %}hide{% endif %}">
     <input type="text" class="text" data-style="title" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}{{content.text}}{% endif %}{% endfor %}">
     <div class='zoneImage' data-image="image1"></div>
     <textarea data-style="bottom-text" class='text' name="bottom-text" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}}{% endif %}{% endfor %}">
@@ -41,7 +41,7 @@
     </textarea>
 </div>
 
-<div id='layout3' class="layout">
+<div id='layout3' class="layout {% if page.layout != 'layout3' %}hide{% endif %}">
     <input type="text" data-style="left-text" class="text" name="left-text" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "left-text" and content.layout == 'layout3' %}{{content.text}}{% endif %}{% endfor %}">
     <div>
         <input type="title" class="text" data-style="title" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout3' %}{{content.text}}{% endif %}{% endfor %}">
@@ -57,7 +57,7 @@
 <input type="text" class="text" data-style="right-text" value="{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "right-text" and content.layout == 'layout3' %}{{content.text}}{% endif %}{% endfor %}">
 </div>
 
-<div id='layout4' class="layout hide">
+<div id='layout4' class="layout {% if page.layout != 'layout4' %}hide{% endif %}">
     <div class='zoneImage' data-image="image1">
     {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout4' %}

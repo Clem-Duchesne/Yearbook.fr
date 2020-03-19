@@ -1,52 +1,61 @@
-    var dataStyle;
-    var textArea;
-    var font;
-    var selectedOption;
-    var text = document.getElementsByClassName('text');
-    var menu = document.getElementById('text-menu');
-    var select = document.getElementById('font-select');
-    var layout = document.getElementsByClassName('layout');
-    var f = ["open","lemonada","montserrat","lato"];
-    var t = ["title","right-text","left-text","middle-text","bottom-text"];
+var dataStyle;
+var textArea;
+var font;
+var selectedOption;
+var f = [];
+var text = document.getElementsByClassName("text");
+var menu = document.getElementById("text-menu");
+var select = document.getElementById("font-select");
+var layout = document.getElementsByClassName("layout");
+var polices = document.getElementById("polices").value;
 
-    function font_change(e){
+//Decodage JSON ->string to array
+polices = JSON.parse(polices);
+
+for (let i = 0; i < polices.length; i++) {
+    f.push(polices[i]["fontname"]);
+}
+
+var t = ["title", "right-text", "left-text", "middle-text", "bottom-text"];
+
+function font_change(e) {
+    if (e.target.classList[0] == "text") {
         textArea = e.target;
-        dataStyle = textArea.getAttribute('data-style');
-        font = textArea.getAttribute('class');
+        dataStyle = textArea.getAttribute("data-style");
+        var rect = textArea.getBoundingClientRect();
+
+        font = textArea.getAttribute("class");
         //font = font.replace("text ", "");
 
-        //$('#font-select option[value="' + font + '"]').prop('selected', true);
+        //menu.classList.toggle(dataStyle);
+        var top = rect.top + e.target.clientHeight;
+        menu.style.top = top + "px";
+        menu.style.left = rect.left + "px";
+        menu.classList.remove("hidden");
 
-        menu.classList.toggle(dataStyle);
-        menu.classList.remove('hidden');
-
-        for(let i = 0;i < 5;i++){
-            if(dataStyle != t[i]){
+        for (let i = 0; i < 5; i++) {
+            if (dataStyle != t[i]) {
                 menu.classList.remove(t[i]);
             }
         }
-        //Ne marche pas
-        if( menu.classList.contains('')){
-            menu.classList.add('hidden');
-            console.log("zef");
-        }
-        
-        select.addEventListener('change', function(){
 
-            choice = select.selectedIndex  // Récupération de l'index du <option> choisi
+        select.addEventListener("change", function() {
+            choice = select.selectedIndex; // Récupération de l'index du <option> choisi
             selectedOption = select.options[choice].value;
 
-            textArea.classList.add('class', selectedOption);   
-            
-            for(let i = 0;i < 4;i++){
-                if(selectedOption != f[i]){
-                    textArea.classList.remove(f[i]);
-                }     
-            }       
-        });
-    }    
-        
-    for (var i = 0; i < layout.length; i++) {
-        layout[i].addEventListener('click', font_change);
-    }
+            textArea.classList.add("class", selectedOption);
 
+            for (let i = 0; i < 4; i++) {
+                if (selectedOption != f[i]) {
+                    textArea.classList.remove(f[i]);
+                }
+            }
+        });
+    } else {
+        menu.classList.add("hidden");
+    }
+}
+
+for (var i = 0; i < layout.length; i++) {
+    layout[i].addEventListener("click", font_change);
+}

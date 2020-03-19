@@ -42,6 +42,8 @@ $route->addRoute( 'POST',  '/app/choix/fond/add',  'ChoixController@addFond' );
 
 $route->addRoute( 'GET',  '/app/choix/fond/delete/{id:[0-9]+}',  'ChoixController@deleteFond' );
 
+$route->addRoute( 'POST',  '/app/choix/police/add',  'ChoixController@addPolice' );
+
 // --- Etape 3
 $route->addRoute( 'GET',  '/app/creation',  'CreationController@index' );
 $route->addRoute( 'POST',  '/app/creation/add/image',  'CreationController@addImage' );

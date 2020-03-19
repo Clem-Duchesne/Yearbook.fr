@@ -259,13 +259,13 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
             <div id=\"info\">
                 <span>Année ";
         // line 78
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["yearbook"] ?? null), "annéePromotion", [], "any", false, false, false, 78), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["yearbook"] ?? null), "anneePromotion", [], "any", false, false, false, 78), "html", null, true);
         echo "</span>
                 <span>60 pages</span>
             </div>
             <div id=\"text-menu\" class=\"hidden\">
                     <label for=\"pet-select\">Choisir une police</label>
-                    <select name=\"polices\" id=\"font-select\">
+                    <select name=\"polices\"  id=\"polices\">
                         <option value=\"open\" class=\"opens\" selected>Police par default</option>
                         ";
         // line 85
@@ -549,12 +549,12 @@ class __TwigTemplate_0253f73bf0b72568b3c7b35a0dcd25b69c0e7a8e05e03a227cf197faf61
 
         <div id=\"livre\">
             <div id=\"info\">
-                <span>Année {{yearbook.annéePromotion}}</span>
+                <span>Année {{yearbook.anneePromotion}}</span>
                 <span>60 pages</span>
             </div>
             <div id=\"text-menu\" class=\"hidden\">
                     <label for=\"pet-select\">Choisir une police</label>
-                    <select name=\"polices\" id=\"font-select\">
+                    <select name=\"polices\"  id=\"polices\">
                         <option value=\"open\" class=\"opens\" selected>Police par default</option>
                         {% for police in polices %}
                         <option value=\"{{police.fontname}}\" class=\"{{police.fontname}}\">{{police.fontname | capitalize}}</option>

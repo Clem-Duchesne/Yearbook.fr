@@ -75,12 +75,12 @@
 
         <div id="livre">
             <div id="info">
-                <span>Année {{yearbook.annéePromotion}}</span>
+                <span>Année {{yearbook.anneePromotion}}</span>
                 <span>60 pages</span>
             </div>
             <div id="text-menu" class="hidden">
                     <label for="pet-select">Choisir une police</label>
-                    <select name="polices" id="font-select">
+                    <select name="polices" id="font-select" id="polices">
                         <option value="open" class="opens" selected>Police par default</option>
                         {% for police in polices %}
                         <option value="{{police.fontname}}" class="{{police.fontname}}">{{police.fontname | capitalize}}</option>

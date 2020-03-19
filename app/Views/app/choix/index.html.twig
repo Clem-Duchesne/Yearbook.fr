@@ -33,22 +33,26 @@
                 <p> 1- Allez sur le site de Google Fonts :
                     https://fonts.google.com/ </p>
 
-                <p> 2- Choisissez vos polices en cliquant sur le symbole </p>
+                <p> 2- Choisissez une police en cliquant sur le symbole </p>
 
-                <p>3- En bas à droite cliquez sur la barre grise </p>
+                <p> 3- En bas à droite cliquez sur la barre grise </p>
 
-                <p> 4-Copiez collez les liens CSS et HTML dans les champs ci-dessous </p>
+                <p> 4-Copiez collez les liens CSS et HTML (seulement le http) dans les champs ci-dessous </p>
             </div>
 
 
-            <form>
+            <form method="post" action="{{url('app/choix/police/add')}}">
                 <div>
-                    <label><i class="las la-code"></i></label>
-                    <input type="text" placeholder="Code HTML">
+                    <label><i class="las la-tags"></i></label>
+                    <input type="text" placeholder="Nom de police en minuscule sans espace" name="fontname">
                 </div>
                 <div>
                     <label><i class="las la-code"></i></label>
-                    <input type="text" placeholder="Code CSS">
+                    <input type="text" placeholder="Code HTML" name="html">
+                </div>
+                <div>
+                    <label><i class="las la-code"></i></label>
+                    <input type="text" placeholder="Code CSS" name="css">
                 </div>
                 <div>
                     <button>Ajouter</button>

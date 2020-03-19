@@ -9,6 +9,7 @@ use App\Models\Fond;
 use App\Models\EquipeDepartement;
 use App\Models\Etudiant;
 use App\Models\Yearbook;
+use App\Models\Police;
 use App\models\Image;
 use App\Models\Texte;
 use App\Models\Cellule;
@@ -25,7 +26,7 @@ class CreationController extends Controller
     $content = [];
     $plcc = Pages_layout_cellule_content::getInstance()->getAll();
     $layouts = Layout::getInstance()->getAll();
-    
+    $nLayout = count($layouts);
     $n = count($plcc);
     for($i = 0; $i < $n; $i++){
       $content[$i]['pages_id'] = $plcc[$i]['pages_id'];
@@ -46,18 +47,32 @@ class CreationController extends Controller
       
     }
     $pages = Page::getInstance()->getAll();
-    $n = count($pages);
-    for($i = 0; $i < $n; $i++){
+    $nPage = count($pages);
+    for($i = 0; $i < $nPage; $i++){
       $fond = Fond::getInstance()->getOneMini($pages[$i]['fond_id']);
       $pages[$i]['fond'] = $fond['illustration_mini'];
     }
-    //r($pages);
-    //die;
 
+    for($i = 0;$i<$nPage;$i++){
+      for($j = 0;$j < $n;$j++){
+        if($plcc[$j]['pages_id'] == $pages[$i]['id']){
+          $layout_id = $plcc[$j]['layout_id'];
+          for($k = 0; $k < $nLayout; $k++){
+            if($layout_id == $layouts[$k]['id']){
+              $pages[$i]['layout'] = $layouts[$k]['css_id'];
+            }
+          }
+        }else{
+          $pages[$i]['layout'] = 'layout3';
+        }
+      }
+    }
+
+    
     $this->twig->display(
       'app/creation/index.html.twig',[
         'step' => 3, 
-        //'police' => Police::getInstance()->getAll(),
+        'polices' => Police::getInstance()->getAll(),
         'fonds' => Fond::getInstance()->getMini(),
         'images' => Image::getInstance()->getMini(),
         'etudiants' => Etudiant::getInstance()->getAll(),

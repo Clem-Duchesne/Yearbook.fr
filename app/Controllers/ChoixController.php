@@ -4,7 +4,7 @@
 //
 namespace App\Controllers;
 use App\Models\Fond;
-use App\Models\EquipeDepartement;
+use App\Models\Police;
 
 class ChoixController extends Controller
 {
@@ -35,6 +35,11 @@ class ChoixController extends Controller
       unlink(ASSETS_APP_PATH.'/img/fond/larg/'.$datas['illustration_larg']);
     }
     Fond::getInstance()->delete($id);
+    redirect( '/app/choix' );
+  }
+
+  public function addPolice(){
+    Police::getInstance()->add($_POST);
     redirect( '/app/choix' );
   }
 }
