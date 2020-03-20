@@ -158,20 +158,16 @@ class CreationController extends Controller
     $page_id = Page::getInstance()->getId($page);
 
     $new = ['cellule_id' => $cellule_id['id'], 'image_id' => $img_id['id'], 'layout_id' => $layout_id['id'], 'pages_id' => $page_id['id'] ];
-
+ 
     if(Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $layout_id['id'], $page_id['id'])){
       $id = Pages_layout_cellule_content::getInstance()->getImgId($cellule_id['id'], $layout_id['id'], $page_id['id']);
-      Pages_layout_cellule_content::getInstance()->deleteWithImg($id);
+      Pages_layout_cellule_content::getInstance()->deleteWithImg($id, $cellule_id['id'], $layout_id['id'], $page_id['id']);
       Pages_layout_cellule_content::getInstance()->add($new);
     }
     else{
       Pages_layout_cellule_content::getInstance()->add($new);
     }
-/*
-    header( 'Content-Type: application/json' );
-	echo json_encode([
-	  $id
-	]);*/
+
   }
 
   public function saveBg(){
@@ -180,25 +176,27 @@ class CreationController extends Controller
 
     $fond = explode('/', $fond);
     $n = count($fond);
+    
     for($i = 0; $i <= $n; $i++){
       if($i == $n - 1){
         $fond = $fond[$i];
+
+        $fond_id = Fond::getInstance()->getId($fond);
+        $page_id = Page::getInstance()->getId($page);
+
+        if($fond_id != false){
+          $datas = ['fond_id' => $fond_id['id']];
+
+          Page::getInstance()->update($page_id['id'], $datas);
+        }
+
       }
     }
-    //$fond = $fond[11];
-
-    $fond_id = Fond::getInstance()->getId($fond);
-    $page_id = Page::getInstance()->getId($page);
-
-    $datas = ['fond_id' => $fond_id['id']];
-
-    Page::getInstance()->update($page_id['id'], $datas);
-    /*
+   
    header( 'Content-Type: application/json' );
 	    echo json_encode([
-        $fond_id,
-        $page_id
-	]);*/
+        $fond
+	]);
 
   }
 }

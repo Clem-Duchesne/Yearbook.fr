@@ -14,15 +14,18 @@ class Pages_layout_cellule_content extends Base {
     return self::$instance;
   }
 
-  public function deleteWithImg($id){
-    $sql = "DELETE FROM `{$this->tableName}` WHERE image_id = :id";
+  public function deleteWithImg($id, $cellule, $layout, $pages){
+    $sql = "DELETE FROM `{$this->tableName}` WHERE image_id = :id AND cellule_id = :cellule AND layout_id = :layout AND pages_id = :pages";
     $sth = self::$dbh->prepare($sql);
     $sth->bindValue(':id', $id);
+    $sth->bindValue(':cellule', $cellule);
+    $sth->bindValue(':layout', $layout );
+    $sth->bindValue(':pages', $pages );
     $sth->execute();
   }
 
   public function getOne($cellule, $layout, $pages){
-    $sql = "SELECT COUNT(*) AS c FROM `{$this->tableName}` WHERE cellule_id = :cellule AND layout_id = :layout AND pages_id = :pages";
+    $sql = "SELECT COUNT(*) AS c, id FROM `{$this->tableName}` WHERE cellule_id = :cellule AND layout_id = :layout AND pages_id = :pages";
     $sth = self::$dbh->prepare($sql);
     $sth->bindValue(':cellule', $cellule);
     $sth->bindValue(':layout', $layout );
