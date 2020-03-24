@@ -84,7 +84,15 @@
   width: 80%;
   height: 30%;
 }
+#layout3 p {
+  width: 80%;
+  height: 30%;
+}
 #layout3 input {
+  width: 20%;
+  height: 7%;
+}
+#layout3 span {
   width: 20%;
   height: 5%;
 }

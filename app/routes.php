@@ -44,14 +44,16 @@ $route->addRoute( 'GET',  '/app/choix/fond/delete/{id:[0-9]+}',  'ChoixControlle
 
 $route->addRoute( 'POST',  '/app/choix/police/add',  'ChoixController@addPolice' );
 
-// --- Etape 3
+// --- Creation
 $route->addRoute( 'GET',  '/app/creation',  'CreationController@index' );
 $route->addRoute( 'POST',  '/app/creation/add/image',  'CreationController@addImage' );
 $route->addRoute('GET', '/app/creation/save', 'CreationController@save');
 $route->addRoute('POST', '/app/creation/save/img', 'CreationController@saveImg');
 $route->addRoute('POST', '/app/creation/save/background', 'CreationController@saveBg');
 
+// --- Export
 
-$route->addRoute('GET', '/app/creation/test', 'CreationController@test');
+$route->addRoute( 'GET',  '/app/export',  'ExportController@index' );
+
 
 

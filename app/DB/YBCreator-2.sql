@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mer. 18 mars 2020 à 12:29
+-- Généré le :  mar. 24 mars 2020 à 20:27
 -- Version du serveur :  10.1.40-MariaDB
 -- Version de PHP :  7.3.5
 
@@ -61,7 +61,10 @@ CREATE TABLE `yearbook_apparait` (
 --
 
 INSERT INTO `yearbook_apparait` (`id`, `id_photo`, `id_personne`, `type`) VALUES
-(5, 15, 10, 'etud');
+(5, 15, 10, 'etud'),
+(6, 16, 10, 'etud'),
+(7, 17, 10, 'etud'),
+(8, 18, 15, 'etud');
 
 -- --------------------------------------------------------
 
@@ -84,7 +87,10 @@ INSERT INTO `yearbook_cellule` (`id`, `data-image`, `data-style`) VALUES
 (2, NULL, 'bottom-text'),
 (3, NULL, 'right-text'),
 (4, NULL, 'left-text'),
-(5, 'image1', NULL);
+(5, 'image1', NULL),
+(6, 'image2', NULL),
+(7, 'image3', NULL),
+(8, 'image4', NULL);
 
 -- --------------------------------------------------------
 
@@ -131,7 +137,8 @@ INSERT INTO `yearbook_etudiant` (`id`, `nom`, `pnom`, `droitImage`, `created_at`
 (10, 'Chaduc-Nguyen', 'Océane', 1, '2020-01-31 16:32:10'),
 (12, 'Marchand', 'Yohann', 1, '2020-02-03 08:48:55'),
 (13, 'Charrier', 'Baptiste', 1, '2020-02-03 08:51:31'),
-(14, 'Duchesne', 'Clémence', 1, '2020-02-03 08:52:02');
+(14, 'Duchesne', 'Clémence', 1, '2020-02-03 08:52:02'),
+(15, 'Fourgeot ', 'Maude', 1, '2020-03-24 13:08:31');
 
 -- --------------------------------------------------------
 
@@ -174,7 +181,10 @@ CREATE TABLE `yearbook_image` (
 --
 
 INSERT INTO `yearbook_image` (`id`, `image_larg`, `image_mini`, `created_at`) VALUES
-(15, 'img19_LARGE_1582391410.3129.jpg', 'img19_MINI_1582391410.3129.jpg', '2020-02-22 17:10:10');
+(15, 'img19_LARGE_1582391410.3129.jpg', 'img19_MINI_1582391410.3129.jpg', '2020-02-22 17:10:10'),
+(16, '1yQH8F0jysOo2sFT2ciJcYp8kkHaWdAfL=w348-h260-p-k-nu-iv1_LARGE_1584702825.1075.jpg', '1yQH8F0jysOo2sFT2ciJcYp8kkHaWdAfL=w348-h260-p-k-nu-iv1_MINI_1584702825.1075.jpg', '2020-03-20 11:13:45'),
+(17, 'The-Mustang-2019-movie-poster_LARGE_1584714728.487.jpg', 'The-Mustang-2019-movie-poster_MINI_1584714728.487.jpg', '2020-03-20 14:32:08'),
+(18, 'maud-hang_LARGE_1585056293.5696.jpg', 'maud-hang_MINI_1585056293.5696.jpg', '2020-03-24 13:24:53');
 
 -- --------------------------------------------------------
 
@@ -192,8 +202,10 @@ CREATE TABLE `yearbook_layout` (
 --
 
 INSERT INTO `yearbook_layout` (`id`, `css_id`) VALUES
-(1, 'layout1'),
-(2, 'layout3');
+(4, 'layout1'),
+(5, 'layout2'),
+(6, 'layout3'),
+(7, 'layout4');
 
 -- --------------------------------------------------------
 
@@ -213,11 +225,11 @@ CREATE TABLE `yearbook_page` (
 --
 
 INSERT INTO `yearbook_page` (`id`, `pages_number`, `fond_id`, `yearbook_id`) VALUES
-(3, 'page1', NULL, 2),
-(4, 'page2', NULL, 2),
-(5, 'page3', NULL, 2),
-(6, 'page4', NULL, 2),
-(7, 'page5', NULL, 2),
+(3, 'page1', 10, 2),
+(4, 'page2', 10, 2),
+(5, 'page3', 10, 2),
+(6, 'page4', 10, 2),
+(7, 'page5', 10, 2),
 (8, 'page6', NULL, 2),
 (9, 'page7', NULL, 2),
 (10, 'page8', NULL, 2),
@@ -286,16 +298,30 @@ CREATE TABLE `yearbook_pages_layout_cellule_content` (
   `layout_id` int(11) NOT NULL,
   `cellule_id` int(11) NOT NULL,
   `text_id` int(11) DEFAULT NULL,
-  `image_id` int(11) DEFAULT NULL
+  `image_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `yearbook_pages_layout_cellule_content`
 --
 
-INSERT INTO `yearbook_pages_layout_cellule_content` (`id`, `pages_id`, `layout_id`, `cellule_id`, `text_id`, `image_id`) VALUES
-(25, 3, 2, 5, NULL, 15),
-(26, 3, 2, 1, 93, NULL);
+INSERT INTO `yearbook_pages_layout_cellule_content` (`id`, `pages_id`, `layout_id`, `cellule_id`, `text_id`, `image_id`, `created_at`) VALUES
+(28, 3, 6, 1, 94, NULL, '2020-03-18 19:05:26'),
+(33, 3, 6, 4, 95, NULL, '2020-03-18 19:05:26'),
+(34, 3, 6, 3, 96, NULL, '2020-03-18 19:05:26'),
+(35, 3, 6, 2, 97, NULL, '2020-03-18 19:05:26'),
+(36, 4, 5, 1, 98, NULL, '2020-03-18 19:10:04'),
+(42, 4, 6, 4, 99, NULL, '2020-03-20 11:26:46'),
+(53, 5, 6, 5, NULL, 16, '2020-03-23 15:15:44'),
+(54, 6, 6, 5, NULL, 15, '2020-03-23 19:41:46'),
+(57, 7, 6, 5, NULL, 15, '2020-03-23 19:44:08'),
+(77, 3, 6, 5, NULL, 16, '2020-03-24 17:06:42'),
+(78, 4, 6, 5, NULL, 17, '2020-03-24 17:37:55'),
+(79, 4, 4, 5, NULL, 16, '2020-03-24 17:38:02'),
+(80, 4, 4, 6, NULL, 17, '2020-03-24 17:38:04'),
+(81, 4, 4, 7, NULL, 18, '2020-03-24 17:38:06'),
+(82, 4, 4, 8, NULL, 15, '2020-03-24 17:38:08');
 
 -- --------------------------------------------------------
 
@@ -305,9 +331,18 @@ INSERT INTO `yearbook_pages_layout_cellule_content` (`id`, `pages_id`, `layout_i
 
 CREATE TABLE `yearbook_police` (
   `id` int(11) NOT NULL,
+  `fontname` varchar(200) NOT NULL,
+  `fontname_min` varchar(250) NOT NULL,
   `css` text NOT NULL,
   `html` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `yearbook_police`
+--
+
+INSERT INTO `yearbook_police` (`id`, `fontname`, `fontname_min`, `css`, `html`) VALUES
+(2, 'Liu Jian Mao Cao', 'liujianmaocao', 'font-family: \'Liu Jian Mao Cao\', cursive;', 'https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap');
 
 -- --------------------------------------------------------
 
@@ -338,7 +373,12 @@ CREATE TABLE `yearbook_texte` (
 --
 
 INSERT INTO `yearbook_texte` (`id`, `content`, `font`, `author`) VALUES
-(93, 'Test qui normalement doit être bon', 'text', NULL);
+(94, 'Chaulet la best', 'open', NULL),
+(95, 'Gauche', 'open', NULL),
+(96, 'Droite', 'open', NULL),
+(97, 'test en bas avec la police illisible', 'liujianmaocao', NULL),
+(98, 'une bidouille', 'open', NULL),
+(99, 'sgsdgs', 'open', NULL);
 
 -- --------------------------------------------------------
 
@@ -469,19 +509,19 @@ ALTER TABLE `yearbook_admin`
 -- AUTO_INCREMENT pour la table `yearbook_apparait`
 --
 ALTER TABLE `yearbook_apparait`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_cellule`
 --
 ALTER TABLE `yearbook_cellule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_equipedepartement`
 --
 ALTER TABLE `yearbook_equipedepartement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_etudiant`
@@ -499,13 +539,13 @@ ALTER TABLE `yearbook_fond`
 -- AUTO_INCREMENT pour la table `yearbook_image`
 --
 ALTER TABLE `yearbook_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_layout`
 --
 ALTER TABLE `yearbook_layout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_page`
@@ -517,13 +557,13 @@ ALTER TABLE `yearbook_page`
 -- AUTO_INCREMENT pour la table `yearbook_pages_layout_cellule_content`
 --
 ALTER TABLE `yearbook_pages_layout_cellule_content`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_police`
 --
 ALTER TABLE `yearbook_police`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_promotion`
@@ -535,7 +575,7 @@ ALTER TABLE `yearbook_promotion`
 -- AUTO_INCREMENT pour la table `yearbook_texte`
 --
 ALTER TABLE `yearbook_texte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT pour la table `yearbook_yearbook`

@@ -1,0 +1,56 @@
+{% extends "app/export/layout.html.twig" %}
+
+{% block head %}
+<head>
+	<title>Yearbook - MMI</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://use.typekit.net/gnx1whw.css">
+	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lemonada|Montserrat|Open+Sans&display=swap" rel="stylesheet">
+	<link href="{{assetA('css/styleApp.css')}}" rel="stylesheet" type='text/css'>
+    <link href="{{assetA('css/layout.css')}}" rel="stylesheet" type='text/css'>
+    <link href="{{ assetA( 'css/police.php')  }}" rel="stylesheet" type="text/css">
+    {%for police in polices %}
+        <link href="{{police.html}}" rel="stylesheet">
+    {%endfor%}
+</head> 
+{% endblock %}
+{% block content %}
+  <main id="export">
+    <div id="livre">
+            <div id="text-menu" class="hidden">
+                    <label for="pet-select">Choisir une police</label>
+                    <select name="polices" id="font-select">
+                        <option value="open" class="opens" selected>Police par default</option>
+                        {% for police in polices %}
+                        <option value="{{police.fontname_min}}" class="{{police.fontname_min}}">{{police.fontname}}</option>
+                        {% endfor %}
+                    </select>
+            </div>
+            
+            {% for page in pages %}
+                {% if loop.index % 2 != 0 %}
+                <div id="page{{loop.index}}{{loop.index + 1}}" class="pages {% if loop.index > 1 %}hide{% endif %}">
+                {% endif %}
+                    <div class="page" id="page{{loop.index}}">
+                        {% include 'app/export/miseEnPage.html.twig' %}
+                    </div>
+                {% if loop.index % 2 == 0 %}
+                </div>
+                {% endif %}
+            {% endfor %}
+            <div id="nav">
+            {% for page in pages %}
+                {% if loop.index % 2 != 0 %}
+                <span class="numPage {% if loop.index == 1 %}activ{% endif %}" data-page="{{loop.index }}{{loop.index + 1}}">{{loop.index}} - {{loop.index + 1}}</span>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>   
+  </main>
+{% endblock %}
+{% block js %}
+<script src="{{assetA('js/pages.js')}}"></script>
+{% endblock %}
