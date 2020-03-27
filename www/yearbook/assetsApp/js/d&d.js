@@ -52,6 +52,7 @@ var dAndD = function() {
             }
             src = "";
             drag_zone.innerHTML = "";
+            type = "";
             unsetObjDrag();
         }
     }
@@ -78,6 +79,7 @@ var dAndD = function() {
             }
 
             src = "";
+            type = "";
         }
     }
 
@@ -96,6 +98,7 @@ var dAndD = function() {
             fond_creator.draggable = "false";
             e.currentTarget.appendChild(fond_creator);
         }
+        type = "";
     }
 
     /* Function prive */
@@ -104,6 +107,10 @@ var dAndD = function() {
     }
     function setObjDrag(currentObjDrag) {
         objDrag = currentObjDrag;
+    }
+    function getObjDrag() {
+        return objDrag;
+        objDrag = undefined;
     }
     function unsetObjDrag() {
         objDrag = undefined;
@@ -127,6 +134,7 @@ var dAndD = function() {
         goodDropImage: goodDropImage,
         goodDropPage: goodDropPage,
         getSrc: getSrc,
-        getType: getType
+        getType: getType,
+        getObjDrag: getObjDrag
     };
 };

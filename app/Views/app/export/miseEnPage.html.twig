@@ -34,13 +34,15 @@
 </div>
 
 <div id='layout2' class="layout {% if page.layout != 'layout2' %}hide{% endif %}">
-    <h1 data-style="title" name="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "text" and content.layout == 'layout2' %}class="text title {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "left-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</p>
+    <h1 data-style="title" name="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}class="text title {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</h1>
     <div class='zoneImage' data-image="image1">
+        {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout2' %}
                 <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
-            {% endif %}</div>
-    <p data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}class="{{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</p>
-    </textarea>
+            {% endif %}
+        {% endfor %}
+        </div>
+    <p data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}class="text bottom-text {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</p>
 </div>
 
 <div id='layout3' class="layout {% if page.layout != 'layout3' %}hide{% endif %}">

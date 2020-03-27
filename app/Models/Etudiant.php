@@ -16,8 +16,14 @@ class Etudiant extends Base {
 
   public function getAll()
   {
-    $sql = "SELECT * FROM `{$this->tableName}` ORDER BY nom";
-    return self::$dbh->query($sql)->fetchAll();
+    $id_yearbook = $_SESSION['id_yearbook'];
+
+
+    $sql = "SELECT * FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook ORDER BY nom";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id_yearbook', $id_yearbook);
+    $sth->execute();
+    return $sth->fetchAll();
   }
 
 }

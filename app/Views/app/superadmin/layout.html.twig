@@ -12,6 +12,15 @@
 <body>
 <header>
     <img src="{{assetA('img/logo.png')}}">
+    <div id="progressBarre">
+        <a href="{{url('app/configuration')}}" class="step {% if (step >= 1) %} active {% endif %} "> <span> 1 </span> </a>
+        <div class="barre"></div>
+        <a href="{{url('app/choix')}}" class="step {% if (step >= 2) %} active {% endif %} "> <span> 2 </span> </a>
+        <div class="barre"></div>
+        <a href="{{url('app/creation')}}" class="step {% if (step >= 3) %} active {% endif %} "> <span> 3 </span> </a>
+        <div class="barre"></div>
+        <a href="{{url('app/export')}}" class="step {% if (step >= 4) %} active {% endif %} "> <span> 4 </span> </a>
+    </div>
     <div id="burgerButton">
         <span></span>
         <span></span>

@@ -1,0 +1,26 @@
+contenir1, 01 image, 01 cellule
+cellule: id, data-image, data-style
+contenir2, 01 text, 01 cellule
+text:id, content, font, author
+sponsor : id, nom
+aider, 0N sponsor, 0N yearbook
+
+image : id, image_mini, image_larg, created_at
+apparaitre2, 0N equipedepartement, 0N image
+font : id, fontname, fontname_min, css, html, created_at
+decorer, 1N font, 11 text
+appartenir, 01 page, 1N yearbook
+yearbook: id, anneePromotion, actif, comment, created_at
+
+apparaitre1, 0N etudiant, 0N image
+equipedepartement: id, nom, pnom, droitImage, created_at
+layout : id, css_id
+composer, 0N layout, 11 page
+page : id, pages_number, fond_id, yearbook_id
+gerer, 1N admin, 1N yearbook
+
+etudiant: id, nom, pnom, droitImage, created_at
+::
+fond : id, illustration_mini, illustration_larg, created_at
+illustrer, 0N fond, 0N page
+admin: id, name, password, created_at

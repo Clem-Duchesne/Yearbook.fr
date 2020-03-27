@@ -36,10 +36,16 @@ class Admin extends Base {
       return true;
     }
   }
-
+  function getForYearbook($id_yearbook){
+    $sql = "SELECT id FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id_yearbook', $id_yearbook);
+    
+    $sth->execute();
+    return $sth->fetchAll();
+  }
   function encrypt($password){
     $pwd = password_hash($password, PASSWORD_BCRYPT);
-
     return $pwd;
   }
 

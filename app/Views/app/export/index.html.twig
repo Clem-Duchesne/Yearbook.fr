@@ -18,38 +18,34 @@
 </head> 
 {% endblock %}
 {% block content %}
-  <main id="export">
+<main id="export">
     <div id="livre">
-            <div id="text-menu" class="hidden">
-                    <label for="pet-select">Choisir une police</label>
-                    <select name="polices" id="font-select">
-                        <option value="open" class="opens" selected>Police par default</option>
-                        {% for police in polices %}
-                        <option value="{{police.fontname_min}}" class="{{police.fontname_min}}">{{police.fontname}}</option>
-                        {% endfor %}
-                    </select>
-            </div>
-            
-            {% for page in pages %}
-                {% if loop.index % 2 != 0 %}
-                <div id="page{{loop.index}}{{loop.index + 1}}" class="pages {% if loop.index > 1 %}hide{% endif %}">
-                {% endif %}
-                    <div class="page" id="page{{loop.index}}">
-                        {% include 'app/export/miseEnPage.html.twig' %}
-                    </div>
-                {% if loop.index % 2 == 0 %}
-                </div>
-                {% endif %}
-            {% endfor %}
-            <div id="nav">
-            {% for page in pages %}
-                {% if loop.index % 2 != 0 %}
-                <span class="numPage {% if loop.index == 1 %}activ{% endif %}" data-page="{{loop.index }}{{loop.index + 1}}">{{loop.index}} - {{loop.index + 1}}</span>
-                {% endif %}
-            {% endfor %}
-            </div>
-        </div>   
-  </main>
+    {% for page in pages %}
+    {% if loop.index % 2 != 0 %}
+        <div id="pages{{loop.index}}{{loop.index + 1}}" class="pages {% if loop.index > 1 %}hide{% endif %}">
+    {% endif %}
+        <div class="page" id="page{{loop.index}}">
+            {% include 'app/export/miseEnPage.html.twig' %}
+        </div>
+    {% if loop.index % 2 == 0 %}
+        </div>
+    {% endif %}
+    {% endfor %}
+        <div id="nav">
+        {% for page in pages %}
+            {% if loop.index % 2 != 0 %}
+            <span class="numPage {% if loop.index == 1 %}activ{% endif %}" data-page="{{loop.index }}{{loop.index + 1}}">{{loop.index}} - {{loop.index + 1}}</span>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div> 
+    <div class="exportSection">
+        <form action="{{url('app/export/export')}}" method="POST">
+            <input type="hidden" name="fromExportPage" value="true">
+            <button class="btn" type="submit">Exporter</button>
+        </form>
+    </div> 
+</main>
 {% endblock %}
 {% block js %}
 <script src="{{assetA('js/pages.js')}}"></script>

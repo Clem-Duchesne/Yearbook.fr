@@ -62,7 +62,7 @@ class AdminController extends Controller
 
 	       // ouvrir une session en mode ADMIN
 	      $_SESSION['login']= true;
-
+				$_SESSION['id_yearbook'] = Yearbook::getInstance()->getActif()['id'];
 	      if($name === "root"){
 	      	$_SESSION[ 'role' ] = 'root'; 
 	      }

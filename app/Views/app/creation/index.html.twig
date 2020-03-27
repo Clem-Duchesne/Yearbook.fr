@@ -107,7 +107,7 @@
             
             {% for page in pages %}
                 {% if loop.index % 2 != 0 %}
-                <div id="page{{loop.index}}{{loop.index + 1}}" class="pages {% if loop.index > 1 %}hide{% endif %}">
+                <div id="pages{{loop.index}}{{loop.index + 1}}" class="pages {% if loop.index > 1 %}hide{% endif %}">
                 {% endif %}
                     <div class="page" id="page{{loop.index}}">
                         {% include 'app/creation/miseEnPage.html.twig' %}

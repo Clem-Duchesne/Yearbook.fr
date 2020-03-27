@@ -28,8 +28,12 @@ class Image extends Base {
 
   public function getMini()
   {
-    $sql = "SELECT id, image_mini FROM `{$this->tableName}` ORDER BY id";
-    return self::$dbh->query($sql)->fetchAll();
+    $id_yearbook = $_SESSION['id_yearbook'];
+    $sql = "SELECT id, image_mini FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook ORDER BY id";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id_yearbook', $id_yearbook);
+    $sth->execute();
+    return $sth->fetchAll();
   }
 
   public function getLastInsertId(){
@@ -69,7 +73,7 @@ class Image extends Base {
     // redimensionnement de l'image
     redimensionner_image($dest_mini, 480);
     // nom de la version reel
-    
+    $image_name['id_yearbook'] = $_SESSION['id_yearbook'];
     $this->add($image_name);
   }
 

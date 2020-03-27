@@ -9,7 +9,7 @@ $route->addRoute( 'GET',  '/',  'HomeController@index' );
 // --- Login
 $route->addRoute( 'GET',  '/login',  'AdminController@login' );
 $route->addRoute( 'POST',  '/login',  'AdminController@loginCheck' );
-$route->addRoute('GET', '/delog' , 'AdminController@delog');
+$route->addRoute('GET', '/app/delog' , 'AdminController@delog');
 
 // --- Super Administrateur
 
@@ -55,5 +55,6 @@ $route->addRoute('POST', '/app/creation/save/background', 'CreationController@sa
 
 $route->addRoute( 'GET',  '/app/export',  'ExportController@index' );
 
+$route->addRoute( 'POST',  '/app/export/export',  'ExportController@export' );
 
 

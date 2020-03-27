@@ -128,18 +128,18 @@ class CreationController extends Controller
     $pages = $_GET['pages'];
 
     $datas_text = ['content' => $content, 'font' => $font];
-
+    $yearbook_id = $_SESSION['id_yearbook'];
     $cellule_id = Cellule::getInstance()->getId($cellule);
     $layout_id = Layout::getInstance()->getId($layout);
     $pages_id = Page::getInstance()->getId($pages);
 
-    if (Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $layout_id['id'], $pages_id['id'])) {
-      $id = Pages_layout_cellule_content::getInstance()->getTextId($cellule_id['id'], $layout_id['id'], $pages_id['id']);
+    if (Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $yearbook_id, $layout_id['id'], $pages_id['id'])) {
+      $id = Pages_layout_cellule_content::getInstance()->getTextId($cellule_id['id'],$yearbook_id, $layout_id['id'], $pages_id['id']);
       Texte::getInstance()->update($id, $datas_text);
     } else {
       Texte::getInstance()->add($datas_text);
       $text_id = Texte::getInstance()->getId($content);
-      $new = ['cellule_id' => $cellule_id['id'], 'text_id' => $text_id['id'], 'layout_id' => $layout_id['id'], 'pages_id' => $pages_id['id']];
+      $new = ['cellule_id' => $cellule_id['id'], 'text_id' => $text_id['id'],'yearbook_id' => $yearbook_id, 'layout_id' => $layout_id['id'], 'pages_id' => $pages_id['id']];
       Pages_layout_cellule_content::getInstance()->add($new);
     }
   }
@@ -150,7 +150,6 @@ class CreationController extends Controller
     $page = $_POST['page'];
     $cellule = $_POST['cellule'];
     $layout = $_POST['layout'];
-
     $img = explode('/', $img);
 
     $n = count($img);
@@ -159,17 +158,17 @@ class CreationController extends Controller
         $img = $img[$i];
       }
     }
-
+    $yearbook_id = $_SESSION['id_yearbook'];
     $img_id = Image::getInstance()->getId($img);
     $cellule_id = Cellule::getInstance()->getIdImg($cellule);
     $layout_id = Layout::getInstance()->getId($layout);
     $page_id = Page::getInstance()->getId($page);
 
-    $new = ['cellule_id' => $cellule_id['id'], 'image_id' => $img_id['id'], 'layout_id' => $layout_id['id'], 'pages_id' => $page_id['id']];
+    $new = ['cellule_id' => $cellule_id['id'], 'yearbook_id' => $yearbook_id, 'image_id' => $img_id['id'], 'layout_id' => $layout_id['id'], 'pages_id' => $page_id['id']];
 
-    if (Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $layout_id['id'], $page_id['id'])) {
-      $id = Pages_layout_cellule_content::getInstance()->getImgId($cellule_id['id'], $layout_id['id'], $page_id['id']);
-      Pages_layout_cellule_content::getInstance()->deleteWithImg($id, $cellule_id['id'], $layout_id['id'], $page_id['id']);
+    if (Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $yearbook_id, $layout_id['id'], $page_id['id'])) {
+      $id = Pages_layout_cellule_content::getInstance()->getImgId($cellule_id['id'], $yearbook_id, $layout_id['id'], $page_id['id']);
+      Pages_layout_cellule_content::getInstance()->deleteWithImg($id, $yearbook_id, $cellule_id['id'],  $layout_id['id'], $page_id['id']);
       Pages_layout_cellule_content::getInstance()->add($new);
     } else {
       Pages_layout_cellule_content::getInstance()->add($new);

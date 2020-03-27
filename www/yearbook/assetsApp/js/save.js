@@ -35,10 +35,10 @@ function save_changes(e) {
             pages: page_text,
             font: font
         },
-        success: function (a, statut) {
+        success: function(a, statut) {
             console.log("success" + a);
         },
-        error: function (resultat, statut, erreur) {
+        error: function(resultat, statut, erreur) {
             console.log(erreur);
         }
     });
@@ -55,36 +55,44 @@ for (let i = 0; i < textarea.length; i++) {
 
 //Fonction pour enregistrer les changements dans les zones images
 function save_changes_img(e) {
-    if (e.target.localName == "img") {
-        var cellule = e.target.parentNode.getAttribute("data-image");
-    } else {
-        var cellule = e.target.getAttribute("data-image");
-    }
-    let layout = e.target.closest(".layout").id;
-    let page = e.target.closest(".page").id;
-    let img = bg;
-    $.ajax({
-        url: url_img,
-        type: "POST",
-        dataType: "text",
-        data: {
-            cellule: cellule,
-            layout: layout,
-            page: page,
-            img: img
-        },
-        success: function (a, statut) {
-            console.log("success" + a);
-        },
-        error: function (resultat, statut, erreur) {
-            console.log(erreur);
+    let objDrag = dd.getObjDrag();
+    console.log(objDrag);
+    if (
+        objDrag != undefined &&
+        objDrag.getAttribute("data-content") == "image"
+    ) {
+        objDrag = undefined;
+        if (e.target.localName == "img") {
+            var cellule = e.target.parentNode.getAttribute("data-image");
+        } else {
+            var cellule = e.target.getAttribute("data-image");
         }
-    });
+        let layout = e.target.closest(".layout").id;
+        let page = e.target.closest(".page").id;
+        let img = bg;
+        $.ajax({
+            url: url_img,
+            type: "POST",
+            dataType: "text",
+            data: {
+                cellule: cellule,
+                layout: layout,
+                page: page,
+                img: img
+            },
+            success: function(a, statut) {
+                console.log("success" + a);
+            },
+            error: function(resultat, statut, erreur) {
+                console.log(erreur);
+            }
+        });
+    }
 }
 
 //Mise en place des Event Listener (lacher le clic) pour les images
 for (let i = 0; i < zoneImage.length; i++) {
-    zoneImage[i].addEventListener("mouseup", function (e) {
+    zoneImage[i].addEventListener("mouseup", function(e) {
         console.log(dd.getType());
         if (dd.getType() == "image") {
             save_changes_img(e);
@@ -94,14 +102,14 @@ for (let i = 0; i < zoneImage.length; i++) {
 
 for (let j = 0; j < dragable.length; j++) {
     dragable[j].addEventListener("mousedown", dd.clickDragable);
-    dragable[j].addEventListener("mousedown", function () {
+    dragable[j].addEventListener("mousedown", function() {
         bg = dd.getSrc();
     });
 }
 
 //Mise en place des Event Listener (lacher le clic) pour les fonds
 for (let i = 0; i < page.length; i++) {
-    page[i].addEventListener("mouseup", function (e) {
+    page[i].addEventListener("mouseup", function(e) {
         if (dd.getType() == "fond") {
             save_changes_bg(e);
         }
@@ -122,10 +130,10 @@ function save_changes_bg(e) {
             page: page_id,
             fond: background
         },
-        success: function (a, statut) {
+        success: function(a, statut) {
             console.log("success" + a);
         },
-        error: function (resultat, statut, erreur) {
+        error: function(resultat, statut, erreur) {
             console.log(erreur);
         }
     });

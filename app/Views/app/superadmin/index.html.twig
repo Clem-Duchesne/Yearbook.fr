@@ -2,32 +2,35 @@
 
 {% block content %}
 
-		<main id="admin">
+<main id="admin">
+	<a href="{{url('app/yearbook/init')}}" class="btn">Créer un yearbook</a>	
+	<div class="content">
+		<div id="liste">
+			<ul>
+			{% for admin in admins %}
+				<li> {{admin.name}}  <a href="{{url('app/admin/delete/') ~ admin.id}}"><i class="las la-times"></i></a>
+			{% endfor %}
+			</ul>
+		</div>
 
-			<div id="liste">
-	            <ul>
-	                {% for admin in admins %}
-	                    <li> {{admin.name}}  <a href="{{url('app/admin/delete/') ~ admin.id}}"><i class="las la-times"></i></a>
-	                {% endfor %}
-	            </ul>
-	        </div>
-
-	        <div id="add_admin">
-				<a href="{{url('app/yearbook/init')}}" class="btn">Créer un yearbook</a>
-				<span></span>
-				<form action="{{ url('app/admin/add') }}" method="post">
-					<div>
-						<label for="name">Nom de l'administrateur</label>
-						<input name="name">
-					</div>
-					<div>
-						<label for="password">Mot de passe</label>
-						<input type="password" name="password">
-					</div>
-					<button class="btn">Ajouter</button>
-				</form>
-			</div>
-
-		</main>
+		<div id="add_admin">
+			
+			<span></span>
+			<form action="{{ url('app/admin/add') }}" method="post">
+				
+				<div>
+			
+					<input type="text" name="name" placeholder="Nom d'utilisateur">
+				</div>
+				<div>
+				
+					<input type="password" name="password" placeholder="Mot de passe">
+				</div>
+				
+				<button class="btn">Ajouter</button>
+			</form>
+		</div>
+	</div>
+</main>
 
 {% endblock %}

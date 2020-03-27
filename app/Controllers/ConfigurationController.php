@@ -23,6 +23,7 @@ class ConfigurationController extends Controller
   {
     if($_POST['statut'] == "etudiant"){
       unset($_POST['statut']);
+      $_POST['id_yearbook'] = $_SESSION['id_yearbook'];
       Etudiant::getInstance()->add($_POST);
     }else{
       unset($_POST['statut']);

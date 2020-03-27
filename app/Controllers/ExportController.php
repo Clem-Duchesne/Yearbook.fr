@@ -4,6 +4,7 @@
 //
 namespace App\Controllers;
 
+use App\Models\Admin;
 use App\Models\Fond;
 use App\Models\EquipeDepartement;
 use App\Models\Etudiant;
@@ -91,5 +92,21 @@ class ExportController extends Controller
         'serialize_polices' => json_encode($polices)
       ]
     );
+  }
+
+  public function export(){
+    if($_POST['fromExportPage'] == 'true'){
+      //
+      // EXPORT PDF DE CLEM
+      //
+
+      $admin = Admin::getInstance()->getForYearbook($_SESSION['id_yearbook']);
+      $nbAdmin = count($admin);
+      for($i = 0; $i < $nbAdmin; $i++){
+        
+      }
+      $data = ['fini' => 1];
+
+    }
   }
 }

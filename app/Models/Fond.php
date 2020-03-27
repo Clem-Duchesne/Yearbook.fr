@@ -16,8 +16,12 @@ class Fond extends Base {
 
   public function getMini()
   {
-    $sql = "SELECT id, illustration_mini FROM `{$this->tableName}` ORDER BY id";
-    return self::$dbh->query($sql)->fetchAll();
+    $id_yearbook = $_SESSION['id_yearbook'];
+    $sql = "SELECT id, illustration_mini FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook ORDER BY id";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id_yearbook', $id_yearbook);
+    $sth->execute();
+    return $sth->fetchAll();
   }
 
   public function getOneMini($id)
@@ -62,7 +66,7 @@ class Fond extends Base {
     
 
     
-    
+    $datas['id_yearbook'] = $_SESSION['id_yearbook'];
     $this->add($datas);
   }
 

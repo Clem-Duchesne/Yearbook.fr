@@ -28,4 +28,12 @@ class Yearbook extends Base {
   {
     return self::$dbh->lastInsertId();
   }
+
+  public function getActif()
+  {
+    $sql = "SELECT id FROM `{$this->tableName}` WHERE fini = 0";
+    $sth = self::$dbh->prepare($sql);
+    $sth->execute();
+    return $sth->fetch();
+  }
 }
