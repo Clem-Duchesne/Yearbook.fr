@@ -38,10 +38,11 @@
                 <p> 3- En bas à droite cliquez sur la barre grise </p>
 
                 <p> 4-Copiez collez les liens CSS et HTML (seulement le http) dans les champs ci-dessous </p>
+                <p> 5-Téléchargez le fichier de police et importez le</p>
             </div>
 
 
-            <form method="post" action="{{url('app/choix/police/add')}}">
+            <form method="post" action="{{url('app/choix/police/add')}}" enctype="multipart/form-data">
                 <div>
                     <label><i class="las la-code"></i></label>
                     <input type="text" placeholder="Code HTML" name="html">
@@ -49,6 +50,9 @@
                 <div>
                     <label><i class="las la-code"></i></label>
                     <input type="text" placeholder="Code CSS" name="css">
+                </div>
+                <div>
+                    <input type="file" id="font" name="file">
                 </div>
                 <div>
                     <button>Ajouter</button>

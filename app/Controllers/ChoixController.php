@@ -46,7 +46,7 @@ class ChoixController extends Controller
     $_POST['fontname'] = str_replace('&display=swap', '', $_POST['fontname']);
     $_POST['fontname'] = str_replace('+', ' ', $_POST['fontname']);
     $_POST['fontname_min'] = strtolower(str_replace(' ','',$_POST['fontname']));
-    Police::getInstance()->add($_POST);
+    Police::getInstance()->addPolice($_POST);
     redirect( '/app/choix' );
   }
 }

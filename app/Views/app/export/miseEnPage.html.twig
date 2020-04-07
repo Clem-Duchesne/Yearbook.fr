@@ -1,4 +1,4 @@
-<div id='layout1' class="layout {% if page.layout != 'layout1' %}hide{% endif %}">
+<div id='layout1' class="layout {% if page.layout != 'layout1' %}hide{%else%}activLayout{% endif %}">
     <div>
         <div id="h" class='zoneImage' data-image="image1">
         {% for content in contents %}
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div id='layout2' class="layout {% if page.layout != 'layout2' %}hide{% endif %}">
+<div id='layout2' class="layout {% if page.layout != 'layout2' %}hide{%else%}activLayout{% endif %}">
     <h1 data-style="title" name="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}class="text title {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</h1>
     <div class='zoneImage' data-image="image1">
         {% for content in contents %}
@@ -45,7 +45,7 @@
     <p data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}class="text bottom-text {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</p>
 </div>
 
-<div id='layout3' class="layout {% if page.layout != 'layout3' %}hide{% endif %}">
+<div id='layout3' class="layout {% if page.layout != 'layout3' %}hide{%else%}activLayout{% endif %}">
     <span data-style="left-text" name="left-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "left-text" and content.layout == 'layout3' %}class="text left-text {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "left-text" and content.layout == 'layout3' %}{{content.text}} {% endif %}{% endfor %}</span>
     <div>
         <h1 data-style="title" name="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout3' %}class="text title {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout3' %}{{content.text}} {% endif %}{% endfor %}</h1>
@@ -61,7 +61,7 @@
     <span data-style="right-text" name="right-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "right-text" and content.layout == 'layout3' %}class="text right-text {{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "right-text" and content.layout == 'layout3' %}{{content.text}} {% endif %}{% endfor %}</span>
 </div>
 
-<div id='layout4' class="layout {% if page.layout != 'layout4' %}hide{% endif %}">
+<div id='layout4' class="layout {% if page.layout != 'layout4' %}hide{%else%}activLayout{% endif %}">
     <div class='zoneImage' data-image="image1">
     {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout4' %}
@@ -78,5 +78,5 @@
     </div>
 </div>
 {% if page.fond %}
-<img src="{{assetA('img/fond/mini/') ~ page.fond }}" class="fondPage" draggable="true">
+<img src="{{assetA('img/fond/mini/') ~ page.fond }}" class="fondPage" draggable="true" id="fond{{loop.index}}">
 {% endif %}
