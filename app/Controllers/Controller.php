@@ -9,7 +9,7 @@ class Controller {
 
   protected $twig;
 
-  function __construct()
+  function __construct() 
   {
     global $twig;
     $this->twig = $twig;

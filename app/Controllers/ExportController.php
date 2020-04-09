@@ -9,7 +9,7 @@ use App\Models\Fond;
 use App\Models\EquipeDepartement;
 use App\Models\Etudiant;
 use App\Models\Yearbook;
-use App\Models\Police;
+use App\Models\Police; 
 use App\models\Image;
 use App\Models\Texte;
 use App\Models\Cellule;
@@ -78,6 +78,7 @@ class ExportController extends Controller
         }
       }
     }
+    
     $this->twig->display(
       'app/export/index.html.twig',[
         'step' => 4, 

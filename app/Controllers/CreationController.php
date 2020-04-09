@@ -65,6 +65,7 @@ class CreationController extends Controller
       for ($j = 0; $j < $n; $j++) {
         if ($plcc[$j]['pages_id'] == $pages[$i]['id']) {
           $layout_id = $plcc[$j]['layout_id'];
+          $pages[$i]['touched'] = true;
           for ($k = 0; $k < $nLayout; $k++) {
             if ($layout_id == $layouts[$k]['id']) {
               $pages[$i]['layout'] = $layouts[$k]['css_id'];
@@ -74,8 +75,21 @@ class CreationController extends Controller
           $pages[$i]['layout'] = 'layout3';
         }
       }
+      if($pages[$i]['fond'] != null){
+        $pages[$i]['touched'] = true;
+      }
     }
-    //r($content);die;
+    
+    $images = Image::getInstance()->getMini();
+    $nbImages = count($images);
+    for ($i = 0; $i < $nbImages; $i++) {
+        for ($j = 0; $j < $n; $j++) {
+            if ($plcc[$j]['image_id'] == $images[$i]['id']) {
+              $images[$i]['used'] = true;
+            }
+        }
+    }
+    
 
     $this->twig->display(
       'app/creation/index.html.twig',
@@ -83,7 +97,7 @@ class CreationController extends Controller
         'step' => 3,
         'polices' => Police::getInstance()->getAll(),
         'fonds' => Fond::getInstance()->getMini(),
-        'images' => Image::getInstance()->getMini(),
+        'images' => $images,
         'etudiants' => Etudiant::getInstance()->getAll(),
         'equipes' => EquipeDepartement::getInstance()->getAll(),
         'pages' => $pages,

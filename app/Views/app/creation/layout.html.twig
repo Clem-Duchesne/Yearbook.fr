@@ -3,7 +3,7 @@
 {% block head %}
 
 {% endblock %}
-<body>
+<body class="load">
 <header>
     <img src="{{assetA('img/logo.png')}}">
     <div id="progressBarre">
@@ -15,15 +15,20 @@
         <div class="barre"></div>
         <a href="{{url('app/export')}}" class="step {% if (step >= 4) %} active {% endif %} "> <span> 4 </span> </a>
     </div>
-    <div id="burgerButton">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div id="question">
+        <i class="las la-question-circle question"></i>
+        <i class="las la-times-circle close"></i>
     </div>
 </header>
 
 {% block content %}{% endblock %}
 
 </body>
+<script>
+window.addEventListener("load", function(event) {
+    document.body.classList.remove('load');
+});
+</script>
+<script src="{{assetA('js/helpMenu.js')}}"></script>
 {% block js %}{% endblock %}
 </html>

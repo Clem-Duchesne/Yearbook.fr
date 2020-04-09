@@ -22,6 +22,16 @@
 
     </div>
 <main id="creation">
+    <!-- Page d'aide -->
+    <div id="helpPage" class="">
+        <h2> Un peu d'aide ?</h2>
+        <p>Tu autem, Fanni, quod mihi tantum tribui dicis quantum ego nec adgnosco nec postulo, facis amice; sed, ut mihi videris, non recte iudicas de Catone; aut enim nemo, quod quidem magis credo, aut si quisquam, ille sapiens fuit. Quo modo, ut alia omittam, mortem filii tulit! memineram Paulum, videram Galum, sed hi in pueris, Cato in perfecto et spectato viro.
+
+Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.
+
+Ardeo, mihi credite, Patres conscripti (id quod vosmet de me existimatis et facitis ipsi) incredibili quodam amore patriae, qui me amor et subvenire olim impendentibus periculis maximis cum dimicatione capitis, et rursum, cum omnia tela undique esse intenta in patriam viderem, subire coegit atque excipere unum pro universis. Hic me meus in rem publicam animus pristinus ac perennis cum C. Caesare reducit, reconciliat, restituit in gratiam.<p>
+    </div>
+
     <div id="menu">
             <span class="activ outil" data-contenus="images"><i class="las la-image"></i></span>
             <span class="outil" data-contenus="fonds"><i class="las la-palette"></i></span>
@@ -36,7 +46,7 @@
                 <!-- Trigger/Open The Modal -->
                 <button id="popup"><i class="las la-plus-circle"></i></button>
                 {% for image in images %}
-                    <img data-content="image" class="dragable" draggable="false" src="{{assetA('img/photo/mini/') ~ image.image_mini }}" alt="Photos" ondragstart="return false;">
+                    <img data-content="image" class="dragable {% if image.used %}last{% endif %}" draggable="false" src="{{assetA('img/photo/mini/') ~ image.image_mini }}" alt="Photos" ondragstart="return false;">
                 {% endfor %}
 
                 <!-- The Modal -->
@@ -119,7 +129,7 @@
             <div id="nav">
             {% for page in pages %}
                 {% if loop.index % 2 != 0 %}
-                <span class="numPage {% if loop.index == 1 %}activ{% endif %}" data-page="{{loop.index }}{{loop.index + 1}}">{{loop.index}} - {{loop.index + 1}}</span>
+                <span class="numPage {% if loop.index == 1 %}activ{% endif %} {% if page.touched %} touched {% endif %}"  data-page="{{loop.index }}{{loop.index + 1}}">{{loop.index}} - {{loop.index + 1}}</span>
                 {% endif %}
             {% endfor %}
             
