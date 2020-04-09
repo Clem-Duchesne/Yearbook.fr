@@ -682,6 +682,12 @@ footer a {
     object-fit: contain;
     user-select: none;
 }
+#fonds .dragable,
+#layout .dragable {
+    width: 95%;
+    height: 100px;
+    margin-bottom: 10px;
+}
 #contenus .dragable.last {
     order: 10;
     filter: grayscale(100%);
