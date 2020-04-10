@@ -3,6 +3,25 @@
 {% block content %}
 
 <main id="admin">
+		<!-- Page d'aide -->
+        <div id="helpPage" class="">
+            <h2> Un peu d'aide ?</h2>
+            <h3>Menu administrateur</h3>
+            <ul>
+                <li>Ici, vous pouvez créer un yearbook et ajouter des administrateurs</li>
+            </ul>
+            <h3>Création d'un yearbook</h3>
+            <ul>
+                <li>Un seul yearbook en cours de création peut exister</li>
+                <li>Cliquez sur le bouton "créer un yearbook" pour générer automatiquement un yearbook de 60 pages affecté à l'année en cours</li>
+            </ul>
+            <h3>Gestion d'administrateurs</h3>
+            <ul>
+                <li>Lorsqu'un yearbook est exporté, les administrateurs liés disparaissent : il n'est pas possible d'utiliser les anciens identifiants</li>
+				<li>Vous devez créer un yearbook avant de pouvoir créer des administrateurs</li>
+				<li>En cas de problème, vous pouvez également supprimer un administrateur</li>
+            </ul>
+        </div>
 	<a href="{{url('app/yearbook/init')}}" class="btn">Créer un yearbook</a>	
 	<div class="content">
 		<div id="liste">

@@ -210,11 +210,26 @@ class CreationController extends Controller
           Page::getInstance()->update($page_id['id'], $datas);
         }
       }
+    }   
+  }
+
+  public function removeImg(){
+    $layout = $_POST['layout'];
+    $page = $_POST['page'];
+    $cellule = $_POST['cellule'];
+    $yearbook_id = $_SESSION['id_yearbook'];
+
+  
+    $cellule_id = Cellule::getInstance()->getIdImg($cellule);
+    $layout_id = Layout::getInstance()->getId($layout);
+    $page_id = Page::getInstance()->getId($page);
+
+    
+
+    if (Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $yearbook_id, $layout_id['id'], $page_id['id'])) {
+     Pages_layout_cellule_content::getInstance()->deleteWhereImg($cellule_id['id'], $layout_id['id'], $page_id['id']);
     }
 
-    header('Content-Type: application/json');
-    echo json_encode([
-      $fond
-    ]);
+    
   }
 }

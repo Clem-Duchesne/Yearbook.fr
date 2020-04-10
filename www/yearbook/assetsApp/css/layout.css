@@ -75,7 +75,7 @@
 #layout3 .zoneImage {
   width: 65%;
   height: 55%;
-  border: 8px solid white;
+  border: 3px solid white;
   -webkit-box-shadow: 1px 1px 17px -5px #5e5e5e;
   box-shadow: 1px 1px 17px -5px #5e5e5e;
   margin: 20px 0px;

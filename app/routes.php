@@ -50,6 +50,7 @@ $route->addRoute( 'POST',  '/app/creation/add/image',  'CreationController@addIm
 $route->addRoute('GET', '/app/creation/save', 'CreationController@save');
 $route->addRoute('POST', '/app/creation/save/img', 'CreationController@saveImg');
 $route->addRoute('POST', '/app/creation/save/background', 'CreationController@saveBg');
+$route->addRoute('POST', '/app/creation/save/removeImg', 'CreationController@removeImg');
 
 // --- Export
 

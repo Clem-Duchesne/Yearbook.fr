@@ -58,4 +58,13 @@ class Pages_layout_cellule_content extends Base {
     return ($sth->fetch()['image_id']);
   }
 
+  public function deleteWhereImg($cellule, $layout, $pages){
+    $sql = "DELETE FROM `{$this->tableName}` WHERE cellule_id = :cellule AND layout_id = :layout AND pages_id = :pages";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':cellule', $cellule);
+    $sth->bindValue(':layout', $layout );
+    $sth->bindValue(':pages', $pages );
+    $sth->execute();
+  }
+
 }
