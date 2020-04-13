@@ -37,8 +37,6 @@
             <li>Exporter en PDF verrouille le yearbook, vous ne pourrez plus le modifier après</li>
         </ul>
     </div>
-<button id="cmd">Exporter</button>
-    
     
     <div id="livre">
     {% for page in pages %}
@@ -63,9 +61,14 @@
     <div class="exportSection">
         <form action="{{url('app/export/export')}}" method="POST">
             <input type="hidden" name="fromExportPage" value="true">
-            <button class="btn" type="submit">Exporter</button>
+            <button class="btn" type="submit" id="cmd">Exporter</button>
         </form>
     </div> 
+    <div hidden>
+    {%for police in polices%}
+        <li class="font"><p class="file">{{police.file}}</p><p class="fontname">{{police.fontname_min}}</p><p class="content">{{police.content}}</p></li>
+    {%endfor%}
+    </div>
 </main>
 {% endblock %}
 {% block js %}
@@ -76,6 +79,10 @@
   crossorigin="anonymous"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.0/jspdf.debug.js"></script>
+  <script src="https://rawgit.com/sphilee/jsPDF-CustomFonts-support/master/dist/jspdf.customfonts.debug.js"></script>
+  <script src="{{assetA('js/default_vfs.js')}}"></script>
+
+  
   <script src="{{assetA('js/export.js')}}"></script>
 {% endblock %}

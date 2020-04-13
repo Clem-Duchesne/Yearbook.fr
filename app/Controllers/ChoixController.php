@@ -42,10 +42,19 @@ class ChoixController extends Controller
     
     $_POST['html'] = str_replace('" rel="stylesheet">', '',$_POST['html']);
     $_POST['html'] = str_replace('<link href="', '', $_POST['html']);
-    $_POST['fontname'] = str_replace("https://fonts.googleapis.com/css?family=", '', $_POST['html']);
+    $_POST['fontname'] = str_replace("https://fonts.googleapis.com/css2?family=", '', $_POST['html']);
+    if(strpos($_POST['fontname'], ':wght@')){
+      for($i=1;$i<8;$i++){
+        $char = ':wght@' . $i *100;
+        if(strpos($_POST['fontname'], $char)){
+          $_POST['fontname'] = str_replace($char, '', $_POST['fontname']);
+        }
+      }
+    }
     $_POST['fontname'] = str_replace('&display=swap', '', $_POST['fontname']);
     $_POST['fontname'] = str_replace('+', ' ', $_POST['fontname']);
     $_POST['fontname_min'] = strtolower(str_replace(' ','',$_POST['fontname']));
+    $_POST['content'] = str_replace('data:application/octet-stream;base64,', '', $_POST['content']);
     Police::getInstance()->addPolice($_POST);
     redirect( '/app/choix' );
   }

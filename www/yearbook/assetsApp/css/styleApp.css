@@ -568,6 +568,7 @@ footer a {
   font-size: 30px;
   color: white;
   border-radius: 70px;
+  z-index: 10;
 }
 
 #choix #googleFont button:hover {
@@ -916,12 +917,6 @@ textarea {
 }
 #export #nav {
   width: 60%;
-}
-/*****A supprimer****/
-#cmd {
-  position: absolute;
-  bottom: 7%;
-  right: 15%;
 }
 /******************
 ***** Text-Menu Classes *****

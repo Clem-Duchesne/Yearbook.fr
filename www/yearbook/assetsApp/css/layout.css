@@ -87,6 +87,7 @@
 #layout3 p {
   width: 80%;
   height: 30%;
+  text-align: center;
 }
 #layout3 input {
   width: 20%;

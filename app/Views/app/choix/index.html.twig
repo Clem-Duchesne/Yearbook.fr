@@ -71,6 +71,8 @@
                 </div>
                 <div>
                     <input type="file" id="font" name="file">
+                    <textarea name="content" id="content" hidden>
+                    </textarea>
                 </div>
                 <div>
                     <button>Ajouter</button>
@@ -89,4 +91,5 @@
 {% block js %}
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="{{assetA('/js/showPictureUpload.js')}}"></script>
+<script src="{{assetA('/js/readFontFileContent.js')}}"></script>
 {% endblock %}

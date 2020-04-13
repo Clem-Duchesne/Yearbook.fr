@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://use.typekit.net/gnx1whw.css">
 	<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato|Lemonada|Montserrat|Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lemonada|Montserrat&display=swap" rel="stylesheet">
 	<link href="{{assetA('css/styleApp.css')}}" rel="stylesheet" type='text/css'>
     <link href="{{assetA('css/layout.css')}}" rel="stylesheet" type='text/css'>
     <link href="{{ assetA( 'css/police.php')  }}" rel="stylesheet" type="text/css">
@@ -118,9 +118,12 @@
             <div id="text-menu" class="hidden">
                     <label for="pet-select">Choisir une police</label>
                     <select name="polices" id="font-select">
-                        <option value="open" class="opens" selected>Police par default</option>
+                        <option value="open" class="opensans" selected>Police par default</option>
                         {% for police in polices %}
-                        <option value="{{police.fontname_min}}" class="{{police.fontname_min}}">{{police.fontname}}</option>
+                            {% if police.fontname_min != "opensans" %}
+                            
+                            <option value="{{police.fontname_min}}" class="{{police.fontname_min}}">{{police.fontname}}</option>
+                            {%endif%}
                         {% endfor %}
                     </select>
             </div>

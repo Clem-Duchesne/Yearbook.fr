@@ -1,3 +1,4 @@
+//File Reader to show Image after load
 var inputPicture = document.getElementById("picture");
 var container = document.getElementById("picture_click");
 container.querySelector("#afterSelect").style.display = "none";
@@ -13,3 +14,5 @@ inputPicture.addEventListener("change", function readURL(e) {
   container.querySelector("#btnAddFond").style.display = " block";
   container.querySelector("#beforeSelect").style.display = "none";
 });
+
+
