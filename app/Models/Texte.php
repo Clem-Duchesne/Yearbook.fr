@@ -21,4 +21,16 @@ class Texte extends Base {
     $sth->execute();
     return $sth->fetch();
   }
+
+  public function delAll()
+  {
+    $id_yearbook = $_SESSION['id_yearbook'];
+
+
+    $sql = "DELETE  FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id_yearbook', $id_yearbook);
+    $sth->execute();
+    return $sth->fetchAll();
+  }
 }

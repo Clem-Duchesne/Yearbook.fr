@@ -34,13 +34,25 @@ class Page extends Base {
   public function init($idYearbook)
     { 
       $numPage = '';
-      $datas = ['pages_number' => $numPage,'yearbook_id' => $idYearbook];
+      $datas = ['pages_number' => $numPage,'id_yearbook' => $idYearbook];
       
         
       for($i = 1; $i<=60;$i++){
         $numPage = $i;
         $datas['pages_number'] = 'page'.$numPage;
-        $this->add($datas);
+        Page::getInstance()->add($datas);
       }
     }
+
+  public function delAll()
+  {
+    $id_yearbook = $_SESSION['id_yearbook'];
+
+
+    $sql = "DELETE  FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id_yearbook', $id_yearbook);
+    $sth->execute();
+    return $sth->fetchAll();
+  }
 }

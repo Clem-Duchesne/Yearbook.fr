@@ -61,19 +61,20 @@ class Base
    */
   public function add($datas)
   {
-    $sql = "INSERT INTO   `{$this->tableName}`  ( ";
-    foreach (array_keys($datas) as $k) {
-      $sql .= " {$k} ,";
-    }
-    $sql = substr($sql, 0, strlen($sql) - 1) . " ) VALUE (";
-    foreach (array_keys($datas) as $k) {
-      $sql .= " :{$k} ,";
-    }
-    $sql = substr($sql, 0, strlen($sql) - 1) . " )";
-    $sth = self::$dbh->prepare($sql);
-    foreach (array_keys($datas) as $k) {
-      $sth->bindValue(':' . $k, $datas[$k]);
-    }
+      $sql = "INSERT INTO   `{$this->tableName}`  ( ";
+      foreach (array_keys($datas) as $k) {
+          $sql .= " {$k} ,";
+      }
+      $sql = substr($sql, 0, strlen($sql) - 1) . " ) VALUE (";
+      foreach (array_keys($datas) as $k) {
+          $sql .= " :{$k} ,";
+      }
+      $sql = substr($sql, 0, strlen($sql) - 1) . " )";
+      $sth = self::$dbh->prepare($sql);
+      foreach (array_keys($datas) as $k) {
+          $sth->bindValue(':' . $k, $datas[$k]);
+      }
+      
     $sth->execute();
     return self::$dbh->lastInsertId();
   }

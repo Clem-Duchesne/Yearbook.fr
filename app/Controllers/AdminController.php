@@ -62,16 +62,20 @@ class AdminController extends Controller
 
 	       // ouvrir une session en mode ADMIN
 	      $_SESSION['login']= true;
-				$_SESSION['id_yearbook'] = Yearbook::getInstance()->getActif()['id'];
+				
 	      if($name === "root"){
-	      	$_SESSION[ 'role' ] = 'root'; 
+					$_SESSION[ 'role' ] = 'root'; 
+					redirect( '/app/admin' );
+					die;
+					
 	      }
 	      else{
-	      	$_SESSION[ 'role' ] = 'admin'; 
+					$_SESSION[ 'role' ] = 'admin'; 
+					// redirection vers la page d'édition
+					redirect( '/app/configuration' );
 	      }
 
-	      // redirection vers la page d'édition
-	      redirect( '/app/configuration' );
+	      
 	    } 
 	    else{
 	    //Cas d'erreur
@@ -104,6 +108,7 @@ class AdminController extends Controller
 			Yearbook::getInstance()->add($datasYB);
 			$lastInsert = Yearbook::getInstance()->getLast();
 			Page::getInstance()->init($lastInsert);
+			$_SESSION['id_yearbook'] = $lastInsert;
 			//$_SESSION['msg'] = "Yearbook Créé";
 			redirect( '/app/admin' );
 			

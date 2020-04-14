@@ -26,15 +26,11 @@
         <ul>
             <li>Vous pouvez revenir en arrière à tout moment</li>
         </ul>
-        <h3>Enregistrement</h3>
-        <ul>
-            <li>Choisissez des images de bonne qualité qui ne pèsent pas trop lourd</li>
-            <li>L'enregistrement de votre travail en cours est automatique et se fait au fur et à mesure que vous ajoutez vos contenus sur les pages</li>
-            <li>Pour changer un layout, ajoutez votre layout puis ajoutez du contenu (texte ou image)</li>
-        </ul>
         <h3>Export PDF</h3>
         <ul>
             <li>Exporter en PDF verrouille le yearbook, vous ne pourrez plus le modifier après</li>
+            <li>Après avoir cliqué sur le bouton "Exporter", le yearbook sera téléchargé en PDF </li>
+            <li>Vous serez déconnecté et vous ne pourrez plus vous connecter. </li>
         </ul>
     </div>
     
@@ -59,10 +55,9 @@
         </div>
     </div> 
     <div class="exportSection">
-        <form action="{{url('app/export/export')}}" method="POST">
-            <input type="hidden" name="fromExportPage" value="true">
-            <button class="btn" type="submit" id="cmd">Exporter</button>
-        </form>
+        
+        <span class="btn" hdsdfref="{{url('app/export/export')}}" id="cmd">Exporter</span>
+
     </div> 
     <div hidden>
     {%for police in polices%}

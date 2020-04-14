@@ -1,1206 +1,1211 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: quicksand, sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: quicksand, sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 body.load {
-  cursor: wait;
+    cursor: wait;
 }
 
 main {
-  height: 100%;
-  padding: 120px 0;
+    height: 100%;
+    padding: 120px 0;
 }
 .hide {
-  display: none !important;
+    display: none !important;
 }
 
 .las,
 .la {
-  color: black;
+    color: black;
 }
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 45px;
-  background-color: #da1414;
-  border: 3px solid #da1414;
-  font-size: 30px;
-  color: white;
-  border-radius: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 45px;
+    background-color: #da1414;
+    border: 3px solid #da1414;
+    font-size: 30px;
+    color: white;
+    border-radius: 70px;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+    background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+    background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+    background: #555;
 }
 /**********************
 ** previous and next **
 **********************/
 body main .prevNext#prevNext {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  height: 120px;
-  font-size: 50px;
-  color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 120px;
+    font-size: 50px;
+    color: black;
 }
 
 body main .prevNext#prevNext a {
-  text-decoration: none;
-  color: black;
-  font-family: bebas-neue-v14-deprecated, sans-serif;
-  font-weight: 400;
+    text-decoration: none;
+    color: black;
+    font-family: bebas-neue-v14-deprecated, sans-serif;
+    font-weight: 400;
 }
 
 /*******************
 ****** Header ******
 *******************/
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f7f0e3;
-  box-shadow: 0 0 20px gray;
-  position: absolute;
-  top: 0;
-  height: 80px;
-  width: 100vw;
-  z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f7f0e3;
+    box-shadow: 0 0 20px gray;
+    position: absolute;
+    top: 0;
+    height: 80px;
+    width: 100vw;
+    z-index: 10;
 }
 
 #progressBarre {
-  display: flex;
-  width: 70%;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
 }
 
 #progressBarre .step {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  width: 60px;
-  border: 4px solid #da1414;
-  border-radius: 100%;
-  background-color: white;
-  text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    border: 4px solid #da1414;
+    border-radius: 100%;
+    background-color: white;
+    text-decoration: none;
 }
 
 #progressBarre .step.active {
-  background-color: #da1414;
+    background-color: #da1414;
 }
 
 #progressBarre .step span {
-  color: #da1414;
-  font-size: 40px;
-  font-family: bebas-neue-v14-deprecated, sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    color: #da1414;
+    font-size: 40px;
+    font-family: bebas-neue-v14-deprecated, sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #progressBarre .step.active span {
-  color: white;
+    color: white;
 }
 
 #progressBarre .barre {
-  display: block;
-  height: 6px;
-  width: 10%;
-  background-color: #da1414;
+    display: block;
+    height: 6px;
+    width: 10%;
+    background-color: #da1414;
 }
 
 /***************
 **** Footer ****
 ***************/
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f7f0e3;
-  box-shadow: 0 0 20px gray;
-  height: 60px;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f0e3;
+    box-shadow: 0 0 20px gray;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
 }
 
 footer a {
-  margin: 0 20px;
+    margin: 0 20px;
 }
 
 /***********************
 ** Accueil des admins **
 ***********************/
 #accueilAdmin {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #accueilAdmin h2 {
-  font-family: arvo, serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 42px;
-  margin-bottom: 40px;
+    font-family: arvo, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 42px;
+    margin-bottom: 40px;
 }
 
 #accueilAdmin p {
-  font-size: 23px;
-  text-align: center;
-  margin-bottom: 40px;
-  padding: 0 20px;
+    font-size: 23px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
 }
 
 #accueilAdmin div {
-  box-shadow: 0px 0px 30px gray;
-  width: 37%;
-  height: 76%;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    box-shadow: 0px 0px 30px gray;
+    width: 37%;
+    height: 76%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #accueilAdmin #retour h2 {
-  color: #da1414;
+    color: #da1414;
 }
 
 #accueilAdmin #retour a {
-  background-color: #da1414;
-  border: 3px solid #da1414;
-  padding: 10px 20px;
-  border-radius: 40px;
-  font-size: 30px;
-  color: white;
-  width: 50%;
-  text-align: center;
-  text-decoration: none;
+    background-color: #da1414;
+    border: 3px solid #da1414;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 30px;
+    color: white;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
 }
 
 #accueilAdmin #retour a:hover {
-  background-color: transparent;
+    background-color: transparent;
 
-  color: #da1414;
+    color: #da1414;
 }
 
 #accueilAdmin #login {
-  background-color: #161616;
+    background-color: #161616;
 }
 
 #accueilAdmin #login h2 {
-  color: #ce900d;
-  margin-bottom: 60px;
+    color: #ce900d;
+    margin-bottom: 60px;
 }
 
 #accueilAdmin #login form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }
 
 #accueilAdmin #login input {
-  background: none;
-  border: none;
-  border-bottom: 3px solid #ce900d;
-  margin-bottom: 40px;
-  padding: 10px;
-  text-align: center;
-  font-size: 30px;
-  width: 50%;
-  color: white;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #ce900d;
+    margin-bottom: 40px;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    width: 50%;
+    color: white;
 }
 
 #accueilAdmin #login button {
-  background-color: #ce900d;
-  border: 3px solid #ce900d;
-  padding: 10px 20px;
-  border-radius: 40px;
-  font-size: 30px;
-  color: white;
-  width: 50%;
+    background-color: #ce900d;
+    border: 3px solid #ce900d;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 30px;
+    color: white;
+    width: 50%;
 }
 
 #accueilAdmin #login button:hover {
-  background-color: transparent;
-  cursor: pointer;
-  color: #ce900d;
+    background-color: transparent;
+    cursor: pointer;
+    color: #ce900d;
 }
 
 /**********************
 **** Configuration ****
 **********************/
 #configuration {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #configuration > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 50%;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
 }
 
 /***** Ajout *****/
 #configuration #ajout {
-  border-left: 3px solid #161616;
+    border-left: 3px solid #161616;
 }
 
 #configuration #ajout i {
-  font-size: 50px;
+    font-size: 50px;
 }
 
 #configuration #ajout form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 #configuration #ajout form > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 60px;
-  width: 100%;
-  line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    width: 100%;
+    line-height: 30px;
 }
 
 #configuration #ajout input {
-  background: none;
-  border: none;
-  border-bottom: 3px solid #da1414;
-  padding: 10px;
-  text-align: center;
-  font-size: 30px;
-  width: 40%;
-  margin-right: 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #da1414;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    width: 40%;
+    margin-right: 20px;
 }
 
 #configuration #ajout button:hover {
-  background-color: transparent;
-  color: #da1414;
-  cursor: pointer;
+    background-color: transparent;
+    color: #da1414;
+    cursor: pointer;
 }
 
 /***** Input radio *****/
 #configuration #ajout #radios {
-  align-items: flex-start;
+    align-items: flex-start;
 }
 
 #configuration #ajout .radio {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 40%;
-  height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
 }
 #configuration #ajout .radio div {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 #configuration #ajout .radio span {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 #configuration #ajout .radio label {
-  font-size: 30px;
-  margin-right: 20px;
+    font-size: 30px;
+    margin-right: 20px;
 }
 
 #configuration #ajout .radio b {
-  border-bottom: 3px solid #da1414;
-  font-size: 30px;
-  margin-right: 20px;
-  padding: 0 10px;
+    border-bottom: 3px solid #da1414;
+    font-size: 30px;
+    margin-right: 20px;
+    padding: 0 10px;
 }
 
 #configuration #ajout .radio label:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #configuration #ajout .radio input {
-  width: 30px;
-  height: 30px;
-  border: 3px solid #da1414;
-  display: inline-block;
-  margin: 0;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #da1414;
+    display: inline-block;
+    margin: 0;
 }
 
 /***** Liste *****/
 #configuration #liste {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  height: 100%;
-  padding: 40px;
-  line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    padding: 40px;
+    line-height: 30px;
 }
 #configuration #liste ul {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 100%;
-  padding-left: 10vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 10vw;
 }
 #liste li {
-  font-size: 30px;
+    font-size: 30px;
 }
 
 #liste .la-times {
-  color: #da1414;
+    color: #da1414;
 }
 
 /****************
 ***** Choix *****
 ****************/
 #choix {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #choix > div {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  width: 50%;
-  height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
 }
 
 #choix h2 {
-  font-size: 35px;
-  color: #da1414;
-  text-align: center;
+    font-size: 35px;
+    color: #da1414;
+    text-align: center;
 }
 
 /**** Fonds ****/
 #fonds {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 90%;
-  width: 100%;
-  padding: 10px;
-  overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 90%;
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
 }
 
 .fond {
-  width: 200px;
-  margin: 10px;
-  position: relative;
+    width: 200px;
+    margin: 10px;
+    position: relative;
 }
 .fond img {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 .fond a {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
 }
 .fond i {
-  color: red;
-  font-size: 30px;
+    color: red;
+    font-size: 30px;
 }
 /** ajout de fond **/
 #picture_click {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 194px;
-  height: 144px;
-  border: 3px solid #da1414;
-  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 194px;
+    height: 144px;
+    border: 3px solid #da1414;
+    position: relative;
 }
 
 #picture_click:hover {
-  color: #da1414;
-  cursor: pointer;
+    color: #da1414;
+    cursor: pointer;
 }
 
 #picture_click i {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 #beforeselect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #afterSelect {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 #btnAddFond {
-  position: absolute;
-  right: 0%;
-  bottom: 0%;
-  padding: 5px;
-  border: black 3px solid;
-  background: black;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    padding: 5px;
+    border: black 3px solid;
+    background: black;
 }
 #btnAddFond:hover {
-  cursor: pointer;
-  border: black 3px solid;
-  background: RGBA(0, 0, 0, 0.6);
+    cursor: pointer;
+    border: black 3px solid;
+    background: RGBA(0, 0, 0, 0.6);
 }
 #btnAddFond i {
-  color: white;
-  font-size: 30px;
+    color: white;
+    font-size: 30px;
 }
 
 /**** Google Font ****/
 #choix #googleFont {
-  border-left: 3px solid #161616;
+    border-left: 3px solid #161616;
 }
 
 #choix #googleFont p {
-  font-size: 25px;
-  padding: 10px 20px;
+    font-size: 25px;
+    padding: 10px 20px;
 }
 
 #choix #googleFont form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 #choix #googleFont form > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 60px;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    width: 100%;
 }
 
 #choix #googleFont i {
-  font-size: 50px;
+    font-size: 50px;
 }
 
 #choix #googleFont input {
-  background: none;
-  border: none;
-  border-bottom: 3px solid #da1414;
-  padding: 10px;
-  text-align: center;
-  font-size: 30px;
-  width: 40%;
-  margin-right: 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #da1414;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    width: 40%;
+    margin-right: 20px;
 }
 
 #choix #googleFont button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70px;
-  width: 200px;
-  background-color: #da1414;
-  border: 3px solid #da1414;
-  font-size: 30px;
-  color: white;
-  border-radius: 70px;
-  z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 200px;
+    background-color: #da1414;
+    border: 3px solid #da1414;
+    font-size: 30px;
+    color: white;
+    border-radius: 70px;
+    z-index: 10;
 }
 
 #choix #googleFont button:hover {
-  background-color: transparent;
-  color: #da1414;
-  cursor: pointer;
+    background-color: transparent;
+    color: #da1414;
+    cursor: pointer;
 }
 
 /*******************************
 ********** Creation ************
 *******************************/
 #creation {
-  padding: 0;
-  padding-top: 80px;
-  display: flex;
-  overflow: hidden;
+    padding: 0;
+    padding-top: 80px;
+    display: flex;
+    overflow: hidden;
 }
 
 /**** Menu ****/
 #creation #menu {
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 4%;
-  height: 100%;
-  background-color: #f7f0e3;
-  box-shadow: 0 0 20px gray;
-  z-index: 3;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 4%;
+    height: 100%;
+    background-color: #f7f0e3;
+    box-shadow: 0 0 20px gray;
+    z-index: 3;
 }
 
 #creation #menu span {
-  margin: 10px 0;
+    margin: 10px 0;
 }
 
 #creation #menu span:hover i {
-  cursor: pointer;
-  color: #da1414;
+    cursor: pointer;
+    color: #da1414;
 }
 
 #creation #menu span.activ i {
-  color: #da1414;
+    color: #da1414;
 }
 
 #creation #menu i {
-  font-size: 50px;
+    font-size: 50px;
 }
 
 /****************
 ** SuperAdmin ***
 ****************/
 #admin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 #admin .btn {
-  text-decoration: none;
-  margin: 20px;
-  font-size: 1.5rem;
-  width: 250px;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 1.5rem;
+    width: 250px;
 }
 #admin .content {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
 }
 #admin #liste {
-  width: 45%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 30px;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
 }
 #add_admin {
-  width: 45%;
-  height: 100%;
+    width: 45%;
+    height: 100%;
 }
 #add_admin form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 #add_admin form div {
-  margin: 20px;
+    margin: 20px;
 }
 #add_admin form input {
-  width: 250px;
-  height: 30px;
-  border: none;
-  border-bottom: 3px #da1414 solid;
-  font-size: 1.6em;
-  padding: 5px;
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-bottom: 3px #da1414 solid;
+    font-size: 1.6em;
+    padding: 5px;
 }
 #add_admin form label {
-  font-size: 1.6em;
+    font-size: 1.6em;
 }
 #add_admin form button {
-  margin: 10px;
+    margin: 10px;
 }
 /**** Contenus ****/
 #contenus {
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 13%;
-  height: 100%;
-  box-shadow: 0 0 20px gray;
-  overflow: auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 13%;
+    height: 100%;
+    box-shadow: 0 0 20px gray;
+    overflow: auto;
 }
 
 #contenus #images,
 #contenus #fonds {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 #contenus #images {
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 #contenus #fonds {
-  flex-direction: column;
+    flex-direction: column;
 }
 #contenus .image {
-  position: relative;
+    position: relative;
 }
 
 #contenus .dragable {
-  width: 45%;
-  height: 100px;
-  margin: 2px;
-  object-fit: contain;
-  user-select: none;
+    width: 45%;
+    height: 100px;
+    margin: 2px;
+    object-fit: contain;
+    user-select: none;
 }
 #fonds .dragable,
 #layout .dragable {
-  width: 95%;
-  height: 100px;
-  margin-bottom: 10px;
+    width: 95%;
+    height: 100px;
+    margin-bottom: 10px;
 }
 #contenus .dragable.last {
-  order: 10;
-  filter: grayscale(100%);
+    order: 10;
+    filter: grayscale(100%);
 }
 #popup {
-  width: 100px;
-  height: 100px;
-  margin: 2px;
-  font-size: 25px;
-  background-color: transparent;
-  border: solid 3px #da1414;
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+    font-size: 25px;
+    background-color: transparent;
+    border: solid 3px #da1414;
 }
 #contenus #picture_click {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: 3px solid #da1414;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 3px solid #da1414;
 }
 
 #contenus #picture_click:hover {
-  color: #da1414;
-  cursor: pointer;
+    color: #da1414;
+    cursor: pointer;
 }
 
 #contenus #picture_click i {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 #contenus #beforeselect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #contenus #afterSelect {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #contenus .hide {
-  display: none !important;
+    display: none !important;
 }
 
 /******** Drag & Drop ********/
 #image_move {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-  margin: 5px;
-  position: absolute;
-  opacity: 0.5;
-  z-index: 100;
-  pointer-events: none;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 5px;
+    position: absolute;
+    opacity: 0.5;
+    z-index: 100;
+    pointer-events: none;
 }
 
 /**** livre ****/
 
 /**** livre ****/
 #livre {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  width: 83%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 83%;
 }
 
 #info {
-  border: solid 3px #da1414;
-  width: 1366px;
-  padding: 10px;
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    border: solid 3px #da1414;
+    width: 1366px;
+    padding: 10px;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .pages {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75%;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+    width: 100%;
 }
 
 .pages .page {
-  width: 683px;
-  /* Taille A4x2,2 pour macbook pro 13''*/
-  height: 483px;
-  /* Taille A4x2,2 pour macbook pro 13''*/
-  border: 1px #161616 solid;
-  z-index: 2;
-  flex-shrink: 0;
-  position: relative;
+    width: 683px;
+    /* Taille A4x2,2 pour macbook pro 13''*/
+    height: 483px;
+    /* Taille A4x2,2 pour macbook pro 13''*/
+    border: 1px #161616 solid;
+    z-index: 2;
+    flex-shrink: 0;
+    position: relative;
 }
 .page .fondPage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }
 .page .zoneImage {
-  z-index: 4;
-  position: relative;
+    z-index: 4;
+    position: relative;
 }
 .page .zoneImage i {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 1.5rem;
-  cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 .page .imageOnPage {
-  z-index: 3;
+    z-index: 3;
 }
 .page .layout {
-  z-index: -1;
+    z-index: -1;
 }
 .page .imageOnPage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .page input,
 textarea {
-  z-index: 3;
-  background-color: rgba(0, 0, 0, 0);
-  box-shadow: none;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
 }
 
 /**** navigation entre les pages ****/
 #nav {
-  width: 100%;
-  height: 10%;
-  display: flex;
+    width: 100%;
+    height: 10%;
+    display: flex;
 
-  align-items: center;
-  justify-content: flex-start;
-  overflow: auto;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: auto;
 }
 
 #nav .numPage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 10px;
-  margin: 0 10px;
-  border: 3px #161616 solid;
-  flex-shrink: 0;
-  transition: ease 300ms background-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    margin: 0 10px;
+    border: 3px #161616 solid;
+    flex-shrink: 0;
+    transition: ease 300ms background-color;
+}
+#nav a.numPage {
+    color: black;
+    text-decoration: none;
 }
 #nav .numPage.touched {
-  background-color: #b4ffa4;
+    background-color: #b4ffa4;
 }
 #nav .numPage.activ,
 #nav .numPage:hover {
-  background-color: #161616;
-  color: white;
-  cursor: pointer;
+    background-color: #161616;
+    color: white;
+    cursor: pointer;
 }
 
 /**********************
 ***** Exportation *****
 **********************/
 #export {
-  padding: 0;
+    padding: 0;
 }
 #exportation {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 .exportSection {
-  position: absolute;
-  bottom: 5%;
-  right: 2%;
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
 }
 .exportSection button {
-  font-size: 1rem;
-  width: 150px;
-  height: 45px;
+    font-size: 1rem;
+    width: 150px;
+    height: 45px;
 }
 #export #livre {
-  width: 100%;
-  height: 90%;
+    width: 100%;
+    height: 90%;
 }
 #export #nav {
-  width: 60%;
+    width: 60%;
 }
 /******************
 ***** Text-Menu Classes *****
 ******************/
 /**** Begin conditions ****/
 .hidden {
-  display: none;
+    display: none;
 }
 /**** Menu Classes ****/
 .page {
-  position: relative;
+    position: relative;
 }
 .top-text {
-  font-size: 1.1rem;
-  z-index: 3;
+    font-size: 1.1rem;
+    z-index: 3;
 }
 .middle-text {
-  z-index: 3;
-  font-size: 1.1rem;
+    z-index: 3;
+    font-size: 1.1rem;
 }
 .bottom-text {
-  z-index: 3;
-  font-size: 1rem;
+    z-index: 3;
+    font-size: 1rem;
 }
 .left-text {
-  z-index: 3;
-  font-size: 1.1rem;
-  text-align: right;
+    z-index: 3;
+    font-size: 1.1rem;
+    text-align: right;
 }
 .right-text {
-  z-index: 3;
-  font-size: 1.1rem;
+    z-index: 3;
+    font-size: 1.1rem;
 }
 .title {
-  z-index: 3;
-  font-size: 1.6rem;
-  text-align: center;
+    z-index: 3;
+    font-size: 1.6rem;
+    text-align: center;
 }
 
 /**** Font Classes ****/
 
 .opens {
-  font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 /**** Message erreur ****/
 #login #message {
-  box-shadow: none;
-  width: 500px;
-  height: 20px;
-  margin: 20px;
-  color: white;
-  font-size: 1.5rem;
+    box-shadow: none;
+    width: 500px;
+    height: 20px;
+    margin: 20px;
+    color: white;
+    font-size: 1.5rem;
 }
 
 /**** Popup ****/
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 5; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  border: 1px solid #888;
-  width: 60%;
-  height: 50%; /* Could be more or less, depending on screen size */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-  position: relative;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 60%;
+    height: 50%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    position: relative;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 /* Modal Header */
 .modal-header {
-  padding: 15px 16px;
-  background-color: #da1414;
-  color: white;
+    padding: 15px 16px;
+    background-color: #da1414;
+    color: white;
 }
 .modal-header span {
-  color: white;
+    color: white;
 }
 
 /* Modal Body */
 .modal-body {
-  padding: 20px 25px;
+    padding: 20px 25px;
 }
 
 /* Add Animation */
 @keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
 }
 #text-menu {
-  z-index: 4;
-  position: absolute;
-  background-color: antiquewhite;
+    z-index: 4;
+    position: absolute;
+    background-color: antiquewhite;
 }
 
 /*** Page d'aide ***/
 #question {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  z-index: 81;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    z-index: 81;
 }
 #question i {
-  font-size: 3em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: 500ms ease;
+    font-size: 3em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 500ms ease;
 }
 #question .question {
-  display: block;
-  opacity: 1;
+    display: block;
+    opacity: 1;
 }
 #question.open .question {
-  transform: rotate(1000deg);
-  opacity: 0;
+    transform: rotate(1000deg);
+    opacity: 0;
 }
 #question .close {
-  opacity: 0;
-  transform: rotate(1000deg);
-  color: black;
+    opacity: 0;
+    transform: rotate(1000deg);
+    color: black;
 }
 #question.open .close {
-  transform: rotate(0deg);
-  opacity: 1;
+    transform: rotate(0deg);
+    opacity: 1;
 }
 body main #helpPage {
-  position: absolute;
-  top: -100vh;
-  right: -100vw;
-  height: 100vh !important;
-  width: 100vw !important;
-  background-color: RGBA(255, 255, 255, 0.9);
-  z-index: 9;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  overflow: auto;
-  padding: 20px 10%;
-  padding-top: 100px;
-  transition: 500ms ease;
-  line-height: 30px;
+    position: absolute;
+    top: -100vh;
+    right: -100vw;
+    height: 100vh !important;
+    width: 100vw !important;
+    background-color: RGBA(255, 255, 255, 0.9);
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+    padding: 20px 10%;
+    padding-top: 100px;
+    transition: 500ms ease;
+    line-height: 30px;
 }
 body main #helpPage h2 {
-  color: #da1414;
-  font-size: 2em;
-  margin-bottom: 20px;
+    color: #da1414;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 #helpPage.open {
-  top: 0;
-  right: 0;
+    top: 0;
+    right: 0;
 }
 #helpPage h3 {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 @media screen and (max-height: 720px) {
-  header {
-    height: 60px;
-  }
-  #progressBarre .step {
-    height: 40px;
-    width: 40px;
-  }
-  #progressBarre .step span {
-    font-size: 30px;
-  }
-  body main .prevNext#prevNext {
-    font-size: 30px;
-  }
-  /*Configuration*/
-  #configuration #ajout form > div {
-    margin-bottom: 20px;
-  }
+    header {
+        height: 60px;
+    }
+    #progressBarre .step {
+        height: 40px;
+        width: 40px;
+    }
+    #progressBarre .step span {
+        font-size: 30px;
+    }
+    body main .prevNext#prevNext {
+        font-size: 30px;
+    }
+    /*Configuration*/
+    #configuration #ajout form > div {
+        margin-bottom: 20px;
+    }
 
-  #configuration #ajout input {
-    font-size: 20px;
-    padding: 5px;
-  }
-  #configuration #ajout i {
-    font-size: 30px;
-  }
+    #configuration #ajout input {
+        font-size: 20px;
+        padding: 5px;
+    }
+    #configuration #ajout i {
+        font-size: 30px;
+    }
 
-  #configuration #ajout .radio b {
-    font-size: 20px;
-  }
-  #configuration #ajout .radio label {
-    font-size: 20px;
-  }
-  #configuration #ajout .radio input {
-    width: 10px;
-    height: 10px;
-  }
-  #configuration #ajout button {
-    height: 50px;
-    width: 150px;
-    font-size: 20px;
-  }
-  #liste li {
-    font-size: 20px;
-  }
-  /* choix  */
-  #picture_click {
-    width: 145px;
-    height: 108px;
-  }
-  #choix #googleFont p {
-    font-size: 20px;
-    padding: 10px 10px;
-  }
-  #choix #googleFont form > div {
-    margin-bottom: 20px;
-  }
-  #choix #googleFont i {
-    font-size: 30px;
-  }
-  #choix #googleFont input {
-    padding: 5px;
-    font-size: 20px;
-  }
-  #choix #googleFont button {
-    height: 50px;
-    width: 150px;
-    font-size: 20px;
-  }
-  /* creation */
-  #creation {
-    padding-top: 60px;
-  }
-  #creation #menu {
-    width: 4%;
-  }
-  #creation #menu i {
-    font-size: 40px;
-  }
+    #configuration #ajout .radio b {
+        font-size: 20px;
+    }
+    #configuration #ajout .radio label {
+        font-size: 20px;
+    }
+    #configuration #ajout .radio input {
+        width: 10px;
+        height: 10px;
+    }
+    #configuration #ajout button {
+        height: 50px;
+        width: 150px;
+        font-size: 20px;
+    }
+    #liste li {
+        font-size: 20px;
+    }
+    /* choix  */
+    #picture_click {
+        width: 145px;
+        height: 108px;
+    }
+    #choix #googleFont p {
+        font-size: 20px;
+        padding: 10px 10px;
+    }
+    #choix #googleFont form > div {
+        margin-bottom: 20px;
+    }
+    #choix #googleFont i {
+        font-size: 30px;
+    }
+    #choix #googleFont input {
+        padding: 5px;
+        font-size: 20px;
+    }
+    #choix #googleFont button {
+        height: 50px;
+        width: 150px;
+        font-size: 20px;
+    }
+    /* creation */
+    #creation {
+        padding-top: 60px;
+    }
+    #creation #menu {
+        width: 4%;
+    }
+    #creation #menu i {
+        font-size: 40px;
+    }
 
-  #contenus .image,
-  #addImage,
-  #contenus .fond,
-  #contenus .layoutico {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    object-fit: contain;
-  }
-  #info {
-    width: 95%;
-  }
-  .pages .page {
-    width: 478px;
-    height: 338px;
-  }
+    #contenus .image,
+    #addImage,
+    #contenus .fond,
+    #contenus .layoutico {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        object-fit: contain;
+    }
+    #info {
+        width: 95%;
+    }
+    .pages .page {
+        width: 478px;
+        height: 338px;
+    }
 }

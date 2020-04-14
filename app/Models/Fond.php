@@ -33,6 +33,15 @@ class Fond extends Base {
     return $sth->fetch();
   }
 
+  public function getOneLarg($id)
+  {
+    $sql = "SELECT id, illustration_larg FROM `{$this->tableName}` WHERE id = :id";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id', $id);
+    $sth->execute();
+    return $sth->fetch();
+  }
+
   public function addWhitImage($datas)
   {
     $time_start = microtime_float();
@@ -48,7 +57,7 @@ class Fond extends Base {
     $filename_larg = $pathparts['filename']."_LARGE_".$time_start.".".$pathparts['extension'];
     $datas['illustration_larg']=$filename_larg;
     // destination large
-    $dest_larg = ASSETS_APP_PATH . "img/fond/larg/$filename_larg";
+    $dest_larg = ASSETS_APP_PATH . "img/fond/large/$filename_larg";
 
     // deplacement
     move_uploaded_file( $source, $dest_larg );
@@ -76,6 +85,18 @@ class Fond extends Base {
     $sth->bindValue(':fond', $fond);
     $sth->execute();
     return $sth->fetch();
+  }
+
+  public function delAll()
+  {
+    $id_yearbook = $_SESSION['id_yearbook'];
+
+
+    $sql = "DELETE  FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook";
+    $sth = self::$dbh->prepare($sql);
+    $sth->bindValue(':id_yearbook', $id_yearbook);
+    $sth->execute();
+    return $sth->fetchAll();
   }
 
 }

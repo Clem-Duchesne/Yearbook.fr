@@ -15,14 +15,6 @@ class Yearbook extends Base {
     }
     return self::$instance;
   }
-  /*
- public function getAll() 
-  {
-    $sql = "SELECT * FROM `{$this->tableName}` WHERE actif = 1";
-    //r($sql);die();
-   return self::$dbh->query($sql)->fetch();
-  }
-  */
 
   public function getLast()
   {

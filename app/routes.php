@@ -46,6 +46,7 @@ $route->addRoute( 'POST',  '/app/choix/police/add',  'ChoixController@addPolice'
 
 // --- Creation
 $route->addRoute( 'GET',  '/app/creation',  'CreationController@index' );
+$route->addRoute( 'GET', '/app/creation/addPage', 'CreationController@addPage');
 $route->addRoute( 'POST',  '/app/creation/add/image',  'CreationController@addImage' );
 $route->addRoute('GET', '/app/creation/save', 'CreationController@save');
 $route->addRoute('POST', '/app/creation/save/img', 'CreationController@saveImg');
@@ -56,6 +57,6 @@ $route->addRoute('POST', '/app/creation/save/removeImg', 'CreationController@rem
 
 $route->addRoute( 'GET',  '/app/export',  'ExportController@index' );
 
-$route->addRoute( 'POST',  '/app/export/export',  'ExportController@export' );
+$route->addRoute( 'GET',  '/app/export/export',  'ExportController@export' );
 
 

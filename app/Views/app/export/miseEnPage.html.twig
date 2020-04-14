@@ -3,14 +3,14 @@
         <div id="h" class='zoneImage' data-image="image1">
         {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout1' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
         </div>
         <div id="v" class='zoneImage' data-image="image2">
         {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image2" and content.layout == 'layout1' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
         </div>
@@ -19,14 +19,14 @@
         <div id="v" class='zoneImage' data-image="image3">
         {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image3" and content.layout == 'layout1' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
         </div>
         <div id="h" class='zoneImage' data-image="image4">
         {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image4" and content.layout == 'layout1' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
         </div>
@@ -38,7 +38,7 @@
     <div class='zoneImage' data-image="image1">
         {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout2' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
         </div>
@@ -52,7 +52,7 @@
         <div class='zoneImage' data-image="image1">
         {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout3' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
         </div>
@@ -65,18 +65,18 @@
     <div class='zoneImage' data-image="image1">
     {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image1" and content.layout == 'layout4' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
     </div>
     <div class='zoneImage' data-image="image2">
     {% for content in contents %}
             {% if page.id == content.pages_id and content.cellule == "image2" and content.layout == 'layout4' %}
-                <img src="{{assetA('img/photo/mini/') ~ content.image}}" class="imageOnPage" draggable="true">
+                <img src="{{assetA('img/photo/large/') ~ content.image}}" class="imageOnPage" draggable="true">
             {% endif %}
         {% endfor %}
     </div>
 </div>
 {% if page.fond %}
-<img src="{{assetA('img/fond/mini/') ~ page.fond }}" class="fondPage" draggable="true" id="fond{{loop.index}}">
+<img src="{{assetA('img/fond/large/') ~ page.fond }}" class="fondPage" draggable="true" id="fond{{loop.index}}">
 {% endif %}

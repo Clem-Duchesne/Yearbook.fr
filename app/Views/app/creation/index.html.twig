@@ -29,16 +29,17 @@
         <ul>
             <li>Vous pouvez revenir en arrière à tout moment</li>
         </ul>
-        <h3>Enregistrement</h3>
+        <h3>Ajout d'image</h3>
         <ul>
             <li>Choisissez des images de bonne qualité qui ne pèsent pas trop lourd</li>
+        </ul>
+        <h3>Enregistrement</h3>  
+        <ul>    
             <li>L'enregistrement de votre travail en cours est automatique et se fait au fur et à mesure que vous ajoutez vos contenus sur les pages</li>
-            <li>Pour changer un layout, ajoutez votre layout puis ajoutez du contenu (texte ou image)</li>
+            <li>Pour que le changement de mise en page soit enregistré, il faut y ajouter du contenu (texte ou image)</li>
+            <li>Pour enregistrer le changement de police, il faut modifier le texte après avoir changé la police</li>
         </ul>
-        <h3>Export PDF</h3>
-        <ul>
-            <li>Exporter en PDF verrouille le yearbook, vous ne pourrez plus le modifier après</li>
-        </ul>
+        
     </div>
 
     <div id="menu">
@@ -63,7 +64,7 @@
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <span class="close">&times;</span>
+                            <span id="close" class="close">&times;</span>
                             <h2>Ajout d'une image</h2>
                         </div>
                         <div class="modal-body">
@@ -113,7 +114,7 @@
         <div id="livre">
             <div id="info">
                 <span>Année {{yearbook.anneePromotion}}</span>
-                <span>60 pages</span>
+                <span>{{pages | length}}</span>
             </div>
             <div id="text-menu" class="hidden">
                     <label for="pet-select">Choisir une police</label>
@@ -146,7 +147,7 @@
                 {% endif %}
             {% endfor %}
             
-                <span class="numPage" data-page="plus">Plus</span>
+                <a href="{{ url('app/creation/addPage') }}" class="numPage" data-page="plus">Plus</a>
             </div>
         </div>   
         <input hidden id="polices" value="{{serialize_polices}}"> 
