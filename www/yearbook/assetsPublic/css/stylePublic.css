@@ -1,122 +1,116 @@
-
-html
-{
-	font-size: 16px;
-	color:#1B1B1B;
+html {
+  font-size: 16px;
+  color: #1b1b1b;
 }
-body
-{
-	margin: 0;
+body {
+  margin: 0;
 }
-a
-{
-	text-decoration: none;
-	font-family: quicksand, sans-serif;
-	color:#1B1B1B;
-
+a {
+  text-decoration: none;
+  font-family: quicksand, sans-serif;
+  color: #1b1b1b;
 }
 
 /*Header*/
-header
-{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #fcf0d6;
-	margin: 0;
-	padding: 10px;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fcf0d6;
+  margin: 0;
+  padding: 10px;
 }
-header img
-{
-	height: 40px;
-	width: auto;
+header img {
+  height: 40px;
+  width: auto;
 }
-header a:last-child
-{
-	color: #e50808;
-	font-size: 1.5rem;
-	font-family: bebas-neue-v14-deprecated, sans-serif;
-	padding: 10px;
-
+header a:last-child {
+  color: #e50808;
+  font-size: 1.5rem;
+  font-family: bebas-neue-v14-deprecated, sans-serif;
+  padding: 10px;
 }
-header a:last-child:hover
-{
-	color: #fcf0d6;
-	border-radius: 20px;
-	background-color: #e50808;
-
-
-
-
+header a:last-child:hover {
+  color: #fcf0d6;
+  border-radius: 20px;
+  background-color: #e50808;
 }
 /*Section welcome*/
-.content
-{
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	flex-direction: column;
-	background-color: #fcf0d6;
-	height: 50vh;
-	padding-bottom: 100px;
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #fcf0d6;
+  height: 50vh;
+  padding-bottom: 100px;
 }
-.content h1
-{	
-	color: #e50808;
-	font-family: bebas-neue-v14-deprecated, sans-serif;
-	font-size: 5rem;
-	margin: 10px;
-	margin-left: 5%;
+.content h1 {
+  color: #e50808;
+  font-family: bebas-neue-v14-deprecated, sans-serif;
+  font-size: 5rem;
+  margin: 10px;
+  margin-left: 5%;
 }
-.content h2
-{
-	font-family: quicksand, sans-serif;
-	font-size: 2rem;
-		margin: 10px;
-	margin-left: 7%;
-
+.content h2 {
+  font-family: quicksand, sans-serif;
+  font-size: 2rem;
+  margin: 10px;
+  margin-left: 7%;
 }
 /*Section Visualisation*/
-.visu
-{
-	height: 70vh;
+.visu {
+  height: 70vh;
 }
-.visu h2
-{	
-	color: #e50808;
-	font-family: bebas-neue-v14-deprecated, sans-serif;
-	text-align: center;
-	font-size: 4rem;
+.visu h2 {
+  color: #e50808;
+  font-family: bebas-neue-v14-deprecated, sans-serif;
+  text-align: center;
+  font-size: 4rem;
 }
-.visu .container-book
-{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	margin: 100px 0px;
+.visu .container-book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 100px 0px;
 }
-.visu .container-book img
-{
-	height: 200px;
-	width: auto;
-	margin: 0 30px;
-
+.visu .container-book img {
+  height: 200px;
+  width: auto;
+  margin: 0 30px;
 }
 
-
+.yearbook {
+  position: relative;
+}
+.yearbook_info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #e5be06;
+  font-size: 1.5rem;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35%;
+  width: 100%;
+}
+.yearbook_none {
+  font-family: "bebas-neue-v14-deprecated", sans-serif;
+  font-size: 2rem;
+}
 
 /*Footer*/
-footer
-{
-	margin-top: 30px;
-	padding: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #fcf0d6;
+footer {
+  margin-top: 30px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcf0d6;
 }
-footer a
-{
-	margin: 0 20px;
+footer a {
+  margin: 0 20px;
 }

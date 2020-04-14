@@ -14,11 +14,10 @@ class ChoixController extends Controller
     $this->twig->display(
       'app/choix/index.html.twig',[
         'step' => 2, 
-        //'police' => Police::getInstance()->getAll(),
         'fonds' => Fond::getInstance()->getMini(),
       ]
     );
-  }
+  } 
 
   public function addFond(){
     Fond::getInstance()->addWhitImage($_POST);

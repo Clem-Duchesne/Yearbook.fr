@@ -22,7 +22,7 @@ var url_removeImg = document
   .querySelector(".url_removeImg")
   .getAttribute("href");
 
-//Fonction avec ajax pour enregistrer les textes (input et textarea)
+//Fonction pour enregistrer les textes (input et textarea)
 function save_changes(e) {
   let text = e.target.value;
   let style = e.target.getAttribute("data-style");
@@ -52,7 +52,7 @@ function save_changes(e) {
 
 //Mise en place des event Listener (texte qui change) pour tous les input et textarea
 for (let i = 0; i < input.length; i++) {
-  input[i].addEventListener("input", save_changes);
+  input[i].addEventListener("change", save_changes);
 }
 
 for (let i = 0; i < textarea.length; i++) {
@@ -62,7 +62,6 @@ for (let i = 0; i < textarea.length; i++) {
 //Fonction pour enregistrer les changements dans les zones images
 function save_changes_img(e) {
   let objDrag = dd.getObjDrag();
-  console.log(objDrag);
   if (objDrag != undefined && objDrag.getAttribute("data-content") == "image") {
     objDrag = undefined;
     if (e.target.localName == "img") {
@@ -161,7 +160,6 @@ function remove_img(e) {
     success: function(a, statut) {
       if (img != null) {
         img.remove();
-        console.log(1);
       } else {
         div = div.children;
         for (let i = 0; i < div.length; i++) {
@@ -176,8 +174,6 @@ function remove_img(e) {
     }
   });
 }
-
-console.log(url_removeImg);
 
 //Mise en place des Event Listener pour la suppression d'images
 for (let i = 0; i < deleteImg.length; i++) {

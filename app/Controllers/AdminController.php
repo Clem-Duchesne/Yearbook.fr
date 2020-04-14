@@ -26,10 +26,10 @@ class AdminController extends Controller
 
 	public function add()
 	  { 
-	    $_POST['password'] = Admin::getInstance()->encrypt($_POST['password']);
+			$_POST['password'] = Admin::getInstance()->encrypt($_POST['password']);
+			$_POST['id_yearbook'] = 	$_SESSION['id_yearbook'];
 
 	    Admin::getInstance()->add($_POST);
-
 	    redirect('/app/admin');
 	  }
 
@@ -100,16 +100,15 @@ class AdminController extends Controller
 		}
 		
 		public function yearbookInit(){
-			//$_SESSION['msg'] = "";
 			$anneeDebut = date('Y') - 1 ;
 			$anneeFin = date('Y') + 1 ;
 			$anneePromo = $anneeDebut . "/" . $anneeFin;
 			$datasYB['anneePromotion'] = $anneePromo;
+			$datasYB['fini'] = 0;
 			Yearbook::getInstance()->add($datasYB);
 			$lastInsert = Yearbook::getInstance()->getLast();
 			Page::getInstance()->init($lastInsert);
 			$_SESSION['id_yearbook'] = $lastInsert;
-			//$_SESSION['msg'] = "Yearbook Créé";
 			redirect( '/app/admin' );
 			
 		}

@@ -156,7 +156,12 @@ class CreationController extends Controller
 
       if (Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $id_yearbook, $layout_id['id'], $pages_id['id'])) {
         $id = Pages_layout_cellule_content::getInstance()->getTextId($cellule_id['id'],$id_yearbook, $layout_id['id'], $pages_id['id']);
-        Texte::getInstance()->update($id, $datas_text);
+        Texte::getInstance()->delete($id);
+        Texte::getInstance()->add($datas_text);
+        $text_id = Texte::getInstance()->getId($content);
+        $new = ['cellule_id' => $cellule_id['id'], 'text_id' => $text_id['id'],'yearbook_id' => $id_yearbook, 'layout_id' => $layout_id['id'], 'pages_id' => $pages_id['id']];
+        Pages_layout_cellule_content::getInstance()->add($new);
+
       } else {
         Texte::getInstance()->add($datas_text);
         $text_id = Texte::getInstance()->getId($content);
@@ -231,13 +236,10 @@ class CreationController extends Controller
       $page = $_POST['page'];
       $cellule = $_POST['cellule'];
       $id_yearbook = $_SESSION['id_yearbook'];
-
     
       $cellule_id = Cellule::getInstance()->getIdImg($cellule);
       $layout_id = Layout::getInstance()->getId($layout);
       $page_id = Page::getInstance()->getId($page);
-
-      
 
       if (Pages_layout_cellule_content::getInstance()->getOne($cellule_id['id'], $id_yearbook, $layout_id['id'], $page_id['id'])) {
       Pages_layout_cellule_content::getInstance()->deleteWhereImg($cellule_id['id'], $layout_id['id'], $page_id['id']);

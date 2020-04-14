@@ -12,9 +12,9 @@
 	<link href="{{assetA('css/styleApp.css')}}" rel="stylesheet" type='text/css'>
     <link href="{{assetA('css/layout.css')}}" rel="stylesheet" type='text/css'>
     <link href="{{ assetA( 'css/police.php')  }}" rel="stylesheet" type="text/css">
-    {%for police in polices %}
+    {% for police in polices %}
         <link href="{{police.html}}" rel="stylesheet">
-    {%endfor%}
+    {% endfor %}
 </head> 
 {% endblock %}
 {% block content %}
@@ -124,7 +124,7 @@
                             {% if police.fontname_min != "opensans" %}
                             
                             <option value="{{police.fontname_min}}" class="{{police.fontname_min}}">{{police.fontname}}</option>
-                            {%endif%}
+                            {% endif %}
                         {% endfor %}
                     </select>
             </div>

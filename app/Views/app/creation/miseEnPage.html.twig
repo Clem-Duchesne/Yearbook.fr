@@ -39,7 +39,7 @@
 </div>
 
 <div id='layout2' class="layout {% if page.layout != 'layout2' %}hide{% endif %}">
-    <input type="text" data-style="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}value="{{content.text}}" class="text title{{content.font}}" {% else %} class="text title opensans" {% endif %}{% endfor %}>
+    <input type="text" data-style="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout2' %}value="{{content.text}}" class="text title {{content.font}}" {% endif %}{% endfor %} class="text right-text opensans">
     <div class='zoneImage' data-image="image1">
         <i class="las la-times deleteImage"></i>
         {% for content in contents %}
@@ -48,14 +48,14 @@
             {% endif %}
         {% endfor %}
     </div>
-    <textarea data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}class="text bottom-text{{content.font}}" {% else %} class="text bottom-text opensans"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</textarea>
+    <textarea data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}class="text bottom-text{{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</textarea>
     </textarea>
 </div>
 
 <div id='layout3' class="layout {% if page.layout != 'layout3' %}hide{% endif %}">
-    <input type="text" data-style="left-text" name="left-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "left-text" and content.layout == 'layout3' %} class="text left-text {{content.font}} " value="{{content.text}}" {% else %} class="text left-text opensans" {% endif %}{% endfor %}  >
+    <input type="text" data-style="left-text" name="left-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "left-text" and content.layout == 'layout3' %} class="text left-text {{content.font}} " value="{{content.text}}"{% endif %}{% endfor %}  class="text right-text opensans">
     <div>
-        <input type="title" data-style="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout3' %} class="text title {{content.font}} " value="{{content.text}}" {% else %} class="text title opensans" {% endif %}{% endfor %}>
+        <input type="title" data-style="title" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "title" and content.layout == 'layout3' %} class="text title {{content.font}} " value="{{content.text}}" {% endif %}{% endfor %} class="text right-text opensans">
         <div class='zoneImage' data-image="image1">
             <i class="las la-times deleteImage"></i>
         {% for content in contents %}
@@ -64,9 +64,9 @@
             {% endif %}
         {% endfor %}
         </div>
-        <textarea data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout3' %}class="text bottom-text {{content.font}}"{% else %} class="text bottom-text opensans"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout3' %}{{content.text}} {% endif %}{% endfor %}</textarea>
+        <textarea data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout3' %}class="text bottom-text {{content.font}}"{% endif %}{% endfor %} class="text right-text opensans">{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout3' %}{{content.text}} {% endif %}{% endfor %}</textarea>
     </div>
-<input type="text"  data-style="right-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "right-text" and content.layout == 'layout3' %}class="text right-text {{content.font}}" value="{{content.text}}" {% else %} class="text right-text opensans"{% endif %}{% endfor %}>
+<input type="text"  data-style="right-text"  {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "right-text" and content.layout == 'layout3' %} class="text right-text {{content.font}}" value="dd" {% endif %}{% endfor %} class="text right-text opensans">
 </div>
 
 <div id='layout4' class="layout {% if page.layout != 'layout4' %}hide{% endif %}">
