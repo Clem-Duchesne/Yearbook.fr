@@ -675,6 +675,11 @@ footer a {
 #add_admin form button {
   margin: 10px;
 }
+#message{
+  color: #da1414;
+  text-align: center;
+  font-size: 1.5rem;
+}
 /**** Contenus ****/
 #contenus {
   padding: 20px 0;
@@ -922,6 +927,9 @@ textarea {
 }
 #export #nav {
   width: 60%;
+}
+#cmd{
+  cursor: pointer;
 }
 /******************
 ***** Text-Menu Classes *****

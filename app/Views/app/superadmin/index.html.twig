@@ -24,6 +24,9 @@
         </div>
 	<a href="{{url('app/yearbook/init')}}" class="btn">Créer un yearbook</a>	
 	<div class="content">
+		<div id="message">
+			<p>{{message}}</p>
+		</div>
 		<div id="liste">
 			<ul>
 			{% for admin in admins %}

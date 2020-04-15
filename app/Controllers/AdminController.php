@@ -13,11 +13,14 @@ class AdminController extends Controller
 		$admins = Admin::getInstance()->getAll();
 
 		if(isset($_SESSION[ 'role' ]) && $_SESSION[ 'role' ] === 'root' ){
+			$message="";
 			$this->twig->display('/app/superadmin/index.html.twig', 
 			[
-				'admins' => $admins
+				'admins' => $admins,
+				'message' =>$message
 				
 			]);
+			
 		}
 		else{
 			redirect( '/app/configuration' );
@@ -100,16 +103,40 @@ class AdminController extends Controller
 		}
 		
 		public function yearbookInit(){
-			$anneeDebut = date('Y') - 1 ;
-			$anneeFin = date('Y') + 1 ;
-			$anneePromo = $anneeDebut . "/" . $anneeFin;
-			$datasYB['anneePromotion'] = $anneePromo;
-			$datasYB['fini'] = 0;
-			Yearbook::getInstance()->add($datasYB);
-			$lastInsert = Yearbook::getInstance()->getLast();
-			Page::getInstance()->init($lastInsert);
-			$_SESSION['id_yearbook'] = $lastInsert;
-			redirect( '/app/admin' );
+			$admins = Admin::getInstance()->getAll();
+			if(Yearbook::getInstance()->getActif()){
+				$message = "Un yearbook est déjà en cours. Veuillez ajouter des administrateurs.";
+				$this->twig->display('/app/superadmin/index.html.twig', 
+				[
+					'admins' => $admins,
+					'message' =>$message
+					
+				]);
+
+			}
+			
+			else{
+				$anneeDebut = date('Y') - 1 ;
+				$anneeFin = date('Y') + 1 ;
+				$anneePromo = $anneeDebut . "/" . $anneeFin;
+				$datasYB['anneePromotion'] = $anneePromo;
+				$datasYB['fini'] = 0;
+				Yearbook::getInstance()->add($datasYB);
+				$lastInsert = Yearbook::getInstance()->getLast();
+				Page::getInstance()->init($lastInsert);
+				$_SESSION['id_yearbook'] = $lastInsert;
+				$message = "Un nouveau yearbook a bien été créé";
+				$this->twig->display('/app/superadmin/index.html.twig', 
+				[
+					'admins' => $admins,
+					'message' =>$message
+					
+				]);
+			}
+				
+			
+			
+			
 			
 		}
 

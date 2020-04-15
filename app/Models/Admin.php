@@ -36,6 +36,7 @@ class Admin extends Base {
       return true;
     }
   }
+
   function getForYearbook($id_yearbook){
     $sql = "SELECT id FROM `{$this->tableName}` WHERE id_yearbook = :id_yearbook";
     $sth = self::$dbh->prepare($sql);
