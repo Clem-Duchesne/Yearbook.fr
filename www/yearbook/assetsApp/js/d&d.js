@@ -10,22 +10,31 @@ var dAndD = function() {
     /* Function public */
 
     function clickDragable(e) {
+        //definit l'element qui est en cours de drag
         setObjDrag(e.target);
+
+        //recuperation du type de contenu que cette element represente
         setType(objDrag.getAttribute("data-content"));
+
+        //definit la source de l'image de cette objet
         setSrc(e.target.currentSrc);
+
+        // Si cet element represente un layout, alors on enregistre quel est le layout concerné
         if (objDrag.getAttribute("data-content") == "layoutico") {
             layout = objDrag.getAttribute("data-layout");
         }
     }
 
     function copyDouble(e) {
+        // Creation d'un element img
         var image_move_creator = document.createElement("IMG");
         image_move_creator.src = src;
         image_move_creator.id = "image_move";
         image_move_creator.draggable = "false";
         image_move_creator.setAttribute("data-type", getType);
-        console.log(image_move_creator.attributes);
         drag_zone.appendChild(image_move_creator);
+
+        // Creation visuellement de l'element
         var image_move = document.getElementById("image_move");
         var x = -1000,
             y = -1000;
@@ -35,6 +44,7 @@ var dAndD = function() {
 
     function mouveDouble(e) {
         if (objDrag != undefined) {
+            // Recuperation des coordonnées du curseur et deplacement de l'element "double" en fonction de ces coordonées
             var image_move = document.getElementById("image_move");
             var width = image_move.width;
             var height = image_move.height;
@@ -46,6 +56,7 @@ var dAndD = function() {
     }
 
     function wrongDrop() {
+        // Verification de l'endroit ou le drop a eu lieu et destruction du double si le lieu est pas celui qui convient 
         if (objDrag != undefined) {
             if (objDrag.getAttribute("data-content") == "layoutico") {
                 layout = undefined;
@@ -58,6 +69,7 @@ var dAndD = function() {
     }
 
     function goodDropImage(e) {
+        // Verification de l'endroit ou le drop a eu lieu puis creation de l'image drag dans l'element prevu a cet effet
         if (
             objDrag != undefined &&
             objDrag.getAttribute("data-content") == "image"
@@ -84,6 +96,7 @@ var dAndD = function() {
     }
 
     function goodDropPage(e) {
+        // Verification de l'endroit ou le drop a eu lieu puis changement de layout ou de fond en fonction du type d'element en cour de drag
         if (type == "layoutico") {
             for (var i = 0; i < nbLayout; i++) {
                 e.currentTarget.children[i].classList.add("hide");

@@ -48,7 +48,7 @@
             {% endif %}
         {% endfor %}
     </div>
-    <textarea data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}class="text bottom-text{{content.font}}"{% endif %}{% endfor %}>{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</textarea>
+    <textarea data-style="bottom-text" name="bottom-text" {% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}class="text bottom-text{{content.font}}"{% endif %}{% endfor %} class="text right-text opensans">{% for content in contents %}{% if page.id == content.pages_id and content.cellule == "bottom-text" and content.layout == 'layout2' %}{{content.text}} {% endif %}{% endfor %}</textarea>
     </textarea>
 </div>
 
