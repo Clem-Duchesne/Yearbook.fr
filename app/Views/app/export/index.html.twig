@@ -28,8 +28,9 @@
         </ul>
         <h3>Export PDF</h3>
         <ul>
-            <li>Exporter en PDF verrouille le yearbook, vous ne pourrez plus le modifier après</li>
-            <li>Après avoir cliqué sur le bouton "Exporter", le yearbook sera téléchargé en PDF </li>
+        <li>Cliquez sur le bouton "Exporter" pour télécharger le Yearbook en PDF</li>
+            <li>Une fois le PDF téléchargé, consultez-le pour voir s'il vous convient et si c'est la cas cliquez sur Valider</li>
+            <li>Dès que vous cliquez sur Valider, le yearbook est verrouillé est vous ne pourrez plus le modifier</Li>
             <li>Vous serez déconnecté et vous ne pourrez plus vous connecter. </li>
         </ul>
     </div>
@@ -56,7 +57,11 @@
     </div> 
     <div class="exportSection">
         
-        <span class="btn" href="{{url('app/export/export')}}" id="cmd">Exporter</span>
+        <span class="btn" id="cmd">Exporter</span> 
+        <form method="post" action="{{url('app/export/export')}}" enctype="multipart/form-data" runat="server">
+            <textarea name="file_pdf" hidden id="pdf"></textarea>
+            <button class="btn" type="submit">Valider</button>
+        </form>
 
     </div> 
     <div hidden>

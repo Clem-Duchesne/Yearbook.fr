@@ -56,7 +56,6 @@ $route->addRoute('POST', '/app/creation/save/removeImg', 'CreationController@rem
 // --- Export
 
 $route->addRoute( 'GET',  '/app/export',  'ExportController@index' );
-
-$route->addRoute( 'GET',  '/app/export/export',  'ExportController@export' );
+$route->addRoute( 'POST',  '/app/export/export',  'ExportController@export' );
 
 

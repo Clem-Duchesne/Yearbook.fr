@@ -28,7 +28,13 @@ class Yearbook extends Base {
     $sth->execute();
     return $sth->fetch();
   }
-
+  public function getYearOfActif()
+  {
+    $sql = "SELECT anneePromotion FROM `{$this->tableName}` WHERE fini = 0";
+    $sth = self::$dbh->prepare($sql);
+    $sth->execute();
+    return $sth->fetch();
+  }
   public function getFinished(){
     $sql = "SELECT anneePromotion, lien_pdf FROM `{$this->tableName}` WHERE fini = 1";
     $sth = self::$dbh->prepare($sql);

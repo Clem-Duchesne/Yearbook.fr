@@ -95,6 +95,17 @@ class ExportController extends Controller
   }
 
    public function export(){
+    $_POST['file_pdf'] = str_replace('data:application/pdf;base64,', '', $_POST['file_pdf']);
+    $pdf = base64_decode($_POST['file_pdf'], true);
+    $year = Yearbook::getInstance()->getYearOfActif();
+    $year = str_replace('/', '-', $year['anneePromotion']);
+    $name = 'Yearbook'.$year .'.pdf';
+
+    file_put_contents(ASSETS_PUBLIC_PATH . 'pdf/'.$name, $pdf);
+    $data = ['lien_pdf' => $name];
+    
+    Yearbook::getInstance()->update($_SESSION['id_yearbook'],$data);
+    
       Admin::getInstance()->delAll();
       Etudiant::getInstance()->delAll();
       Image::getInstance()->delAll();

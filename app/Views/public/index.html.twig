@@ -21,7 +21,7 @@
         <div class="container-book">
             {% if length > 0 %}
                 {% for yearbook in yearbooks %}
-                    <a href="#" class="yearbook">
+                    <a href="{{assetP('pdf/') ~ yearbook.lien_pdf}}" class="yearbook">
                         <img src="{{assetP('img/Yearbook_mini.png')}}" alt="icone Yearbook">
                         <p class="yearbook_info">Yearbook <br> {{ yearbook.anneePromotion }}</p>
                     </a>

@@ -154,10 +154,8 @@ $(document).ready(function(){
         }
     }
 
-    console.log(images);
     var exportBtn = $("#cmd");
     exportBtn.click(function(){
-        console.log("cc");
         //Réglage du pdf en format paysage
         var doc = new jsPDF('l');
         //Réglage du pdf en multipage
@@ -319,14 +317,11 @@ $(document).ready(function(){
                 doc.addPage();
             }
         }
-        doc.output('datauri');
+        doc.output('blob');
         doc.save('Yearbook.pdf');
-        window.setTimeout(function () {
-            // Move to a new location or you can do something else
-            window.location.href =
-                "http://localhost/Yearbook/www/yearbook/app/export/export";
-        }, 3000);
-    
+        var blob = doc.output('datauri');
+        var pdf = document.getElementById('pdf');
+        pdf.innerText = blob;
     });
 
 
